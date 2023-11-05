@@ -1,0 +1,42 @@
+table {
+    border: 1px solid black;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 100px;
+    margin: 0;
+  }
+  p {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    margin: 0 0 20px 0;
+  }
+  tr:nth-child(8n) {
+    border-bottom: 1px solid black;
+  }
+  td:nth-child(7n) {
+    border-right: 1px solid black;
+  }
+  tr:nth-child(8n + 1) td {
+    border-right: 1px solid black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    padding-top: 10px;
+  }
+  tr:nth-child(8n + 2) {
+    font-weight: bold;
+    text-align: center;
+  }
+  .days td {
+    text-align: right;
+    padding-right: 22px;        
+  }
+  .days td:nth-child(7n + 1),
+  .bh {
+    color: red;
+  }

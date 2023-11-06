@@ -1,0 +1,84 @@
+table {
+  border-collapse: collapse;
+  width: 75%;
+  text-align: left;
+  margin-left: 150px;
+  font-family: "Roboto", sans-serif;
+  line-height: 200%;
+}
+.logo {
+  text-align: center;
+}
+.corner {
+  border-bottom: 1px solid #7f7f7f;
+  text-align: center;
+  font-weight: bold;
+  color: #1f3864;
+}
+.company {
+  color: #333f4f;
+  font-size: 25px;
+}
+
+.to {
+  border-bottom: 1px solid #7f7f7f;
+  color: #1f3864;
+  font-weight: bold;
+}
+
+.client {
+  font-size: 22px;
+}
+
+.price td {
+  border: 1px solid #7f7f7f;
+}
+
+#firstRow {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: dodgerblue;
+}
+
+.arial {
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.price tr:nth-child(odd) {
+  background-color: rgba(178, 174, 174, 0.493);
+}
+
+.sum1 {
+  font-size: 20px;
+  text-align: right;
+  font-weight: bold;
+  color: #333f4f;
+}
+
+.sum2 {
+  font-size: 28px;
+  text-align: right;
+  font-weight: bold;
+  color: #333f4f;
+}
+
+.sum3 {
+  text-align: right;
+  color: #333f4f;
+  font-weight: bold;
+}
+
+.sum1 {
+  font-size: 20px;
+  border-bottom: 1px solid #7f7f7f;
+  color: #333f4f;
+}
+#sum4 {
+  font-size: 28px;
+  background-color: rgb(80, 231, 231);
+  color: black;
+  border-bottom: 1px solid black;
+}

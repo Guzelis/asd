@@ -43,7 +43,7 @@ table {
   font-weight: bold;
   text-align: center;
   color: white;
-  background-color: dodgerblue;
+  background-color: #3C78D8;
 }
 
 .arial {
@@ -52,7 +52,7 @@ table {
 }
 
 .price tr:nth-child(odd) {
-  background-color: rgba(178, 174, 174, 0.493);
+  background-color: #F3F3F3;
 }
 
 .sum1 {
@@ -82,7 +82,7 @@ table {
 }
 #sum4 {
   font-size: 28px;
-  background-color: rgb(80, 231, 231);
+  background-color: #CFE2F3;
   color: black;
   border-bottom: 1px solid black;
 }

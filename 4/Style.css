@@ -1,232 +1,233 @@
- * {
-        box-sizing: border-box;
-      }
+* {
+  box-sizing: border-box;
+}
 
-      body {
-        background-image: url(pics/Design_ContactUs.png);
-        background-repeat: no-repeat;
-        background-position: center center;
-        margin: 0px;
-        padding: 0px;
-      }
+body {
+  background-image: url(pics/Design_ContactUs.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0px;
+  padding: 0px;
+}
 
-      .main {
-        background-color: white;
-        max-width: 1440px;
-        width: 100%;
-        margin: 100px auto;
-        border-radius: 50px;
-        position: relative;
+.main {
+  background-color: white;
+  max-width: 1440px;
+  width: 100%;
+  margin: 100px auto;
+  border-radius: 50px;
+  position: relative;
 
-        display: flex;
-        overflow: hidden;
-        padding: 50px 88px;
-        gap: 66px;
-      }
+  display: flex;
+  overflow: hidden;
+  padding: 50px 88px;
+  gap: 66px;
+}
 
-      .main::after {
-        content: "";
-        background-color: #6de1c2;
-        height: 100%;
-        width: 419px;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-      }
+.main::after {
+  content: "";
+  background-color: #6de1c2;
+  height: 100%;
+  width: 419px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
 
-      .sidea {
-        width: 50%;
-        
-        z-index: 1;
-      }
+.sidea {
+  width: 50%;
 
-      .sideb {
-        width: 50%;
-        
-        z-index: 1;
-      }
+  z-index: 1;
+}
 
-      @media screen and (max-width: 768px) {
-        .main,
-        .sidea,
-        .sideb {
-          flex-direction: column;
-          width: 100%;
-          border-radius: 0px;
-          display: block;
-        }
-        .main::after {
-          width: 2%;
-        }
-        .footer {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-        }
-        .dropBottom p {
-          font-size: 10px;
-          margin-bottom: 0px;
-        }
-        .mobile .checkbox {
-          font-size: 10px;
-          width: 100%;
-        }
-        .main {
-          margin: 0px 0px;
-          padding: 50px 10px 0px 10px;
-        }
-        .head h1 { 
-          text-align: center;
-          font-size: 32px;
-        }
+.sideb {
+  width: 50%;
 
-        .mobile {
-          width: 100%;
-          padding: 30px;
-          margin: 0px;
-        }
+  z-index: 1;
+}
 
-        .map img {
-          width: 100%;
-          margin-top: 0px;
-        }
-      }
+@media screen and (max-width: 768px) {
+  .main,
+  .sidea,
+  .sideb {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0px;
+    display: block;
+  }
+  .main::after {
+    width: 2%;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .dropBottom p {
+    font-size: 10px;
+    margin-bottom: 0px;
+  }
+  .mobile .checkbox {
+    font-size: 10px;
+    width: 100%;
+  }
+  .main {
+    margin: 0px 0px;
+    padding: 50px 10px 0px 10px;
+  }
+  .head h1 {
+    text-align: center;
+    font-size: 32px;
+  }
 
-      .head {
-        font-family: "Montserrat", sans-serif;
-      }
+  .mobile {
+    width: 100%;
+    padding: 30px;
+    margin: 0px;
+  }
 
-      h1 {
-        font-size: 46px;
-        margin: 0px;
-        font-weight: bold;
-        letter-spacing: 1%;
-      }
-      .dropBottom {
-        font-size: 14px;
-        line-height: 20px;
-        letter-spacing: 1%;
-      }
+  .map img {
+    width: 100%;
+    margin-top: 0px;
+  }
+}
 
-      form input {
-        font-family: "Inter", sans-serif;
-        font-size: 16px;
-        width: 100%;
-        letter-spacing: 0.5px;
-        line-height: 160%;
-        border: none;
-        line-height: 50px;
-        border-bottom: 1px solid #8e8e8e;
-        display: flex;
-        gap: 12px;
-        padding: 15px 0px 0px 15px;
-      }
+.head {
+  font-family: "Montserrat", sans-serif;
+}
 
-      .drop {
-        border: 1px solid black;
-        border-style: dashed;
-        border-color: #8e8e8e;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        text-align: center;
-        color: #8e8e8e;
-        letter-spacing: 0.5px;
-        line-height: 160%;
-        margin-top: 20px;
-        height: 104px;
-        padding: 40px;
-      }
-      .dropBottom {
-        font-family: "Inter", sans-serif;
-        color: #8e8e8e;
-        font-size: 13px;
-        letter-spacing: 0.5px;
-        line-height: 160%;
-        margin-top: 8px;
-        margin-bottom: 20px;
-      }
-      .cityPost {
-        display: flex;
-        gap: 25px;
-      }
-      .checkbox {
-        display: flex;
-        padding: 12px 16px 12px 4px;
-        gap: 8px;
-        font-family: "Inter", sans-serif;
-        color: #383c3e;
-        font-size: 14px;
-        letter-spacing: 0.5px;
-        line-height: 160%;
-      }
-      .submit button {
-        width: 100%;
-        height: 54px;
-        border-radius: 10px;
-        color: white;
-        background-color: #0982fe;
-        border: none;
-        font-family: "Inter", sans-serif;
-        font-weight: bold;
-        font-size: 14px;
-      }
-      .footer {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-      }
+h1 {
+  font-size: 46px;
+  margin: 0px;
+  font-weight: bold;
+  letter-spacing: 1%;
+}
+.dropBottom {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1%;
+}
 
-      .contacMethod {
-        font-family: "Montserrat", sans-serif;
-        font-size: 13px;
-        font-weight: bold;
-        line-height: 20px;
-        letter-spacing: 2%;
-      }
+form input {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  letter-spacing: 0.5px;
+  line-height: 160%;
+  border: none;
+  line-height: 50px;
+  border-bottom: 1px solid #8e8e8e;
+  display: flex;
+  gap: 12px;
+  padding: 15px 0px 0px 15px;
+}
 
-      .contactName {
-        font-family: "Montserrat", sans-serif;
-        font-size: 13px;
-        color: #dd5471;
-        line-height: 20px;
-        letter-spacing: 2%;
-      }
+.drop {
+  border: 1px solid black;
+  border-style: dashed;
+  border-color: #8e8e8e;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: #8e8e8e;
+  letter-spacing: 0.5px;
+  line-height: 160%;
+  margin-top: 20px;
+  height: 104px;
+  padding: 40px;
+}
+.dropBottom {
+  font-family: "Inter", sans-serif;
+  color: #8e8e8e;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 160%;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+.cityPost {
+  display: flex;
+  gap: 25px;
+}
+.checkbox {
+  display: flex;
+  padding: 12px 16px 12px 4px;
+  gap: 8px;
+  font-family: "Inter", sans-serif;
+  color: #383c3e;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 160%;
+}
+.submit button {
+  width: 100%;
+  height: 54px;
+  border-radius: 10px;
+  color: white;
+  background-color: #0982fe;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
-      .method {
-        display: flex;
-        gap: 15px;
-      }
+.contacMethod {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  letter-spacing: 2%;
+}
 
-      #touch {
-        color: #6de1c2;
-      }
-      .map {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        
-        
-      }
+.contactName {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #dd5471;
+  line-height: 20px;
+  letter-spacing: 2%;
+}
 
-      .cube {
-        content: "Headquarters Company s. r. o. Street. 51 100 00 Prague";
-        width: 157px;
-        height: 98px;
-        background-color: white;
-        border-color: white;
-        border-radius: 10px;
-        position: absolute;
-        top: 20px;
-        left: 40px;
-        color: #0982fe;
-        line-height: 21px;
-        letter-spacing: 1%;
-        font-family: "Montserrat", sans-serif;
-        font-size: 13px;
-        text-align: left;
-        padding-left: 10px;
-        padding-top: 5px;
-      }
-      .icon {
-        padding-top: 5px;
-      }
+.method {
+  display: flex;
+  gap: 15px;
+}
+
+#touch {
+  color: #6de1c2;
+}
+.map {
+  width: 100%;  
+  position: relative;
+}
+
+
+
+
+
+.cube {
+  
+  width: 157px;
+  height: 98px;
+  background-color: white;
+  border-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  color: #0982fe;
+  line-height: 21px;
+  letter-spacing: 1%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+.icon {
+  padding-top: 5px;
+}

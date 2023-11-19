@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
-      * {
+ * {
         box-sizing: border-box;
       }
 
@@ -26,7 +8,6 @@
         background-position: center center;
         margin: 0px;
         padding: 0px;
-        width: 100%;
       }
 
       .main {
@@ -71,8 +52,46 @@
         .sideb {
           flex-direction: column;
           width: 100%;
+          border-radius: 0px;
+          display: block;
+        }
+        .main::after {
+          width: 2%;
+        }
+        .footer {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .dropBottom p {
+          font-size: 10px;
+          margin-bottom: 0px;
+        }
+        .mobile .checkbox {
+          font-size: 10px;
+          width: 100%;
+        }
+        .main {
+          margin: 0px 0px;
+          padding: 50px 10px 0px 10px;
+        }
+        .head h1 { 
+          text-align: center;
+          font-size: 32px;
+        }
+
+        .mobile {
+          width: 100%;
+          padding: 30px;
+          margin: 0px;
+        }
+
+        .map img {
+          width: 100%;
+          margin-top: 0px;
         }
       }
+
       .head {
         font-family: "Montserrat", sans-serif;
       }
@@ -83,11 +102,10 @@
         font-weight: bold;
         letter-spacing: 1%;
       }
-      p {
+      .dropBottom {
         font-size: 14px;
         line-height: 20px;
         letter-spacing: 1%;
-        
       }
 
       form input {
@@ -140,7 +158,6 @@
         font-size: 14px;
         letter-spacing: 0.5px;
         line-height: 160%;
-      
       }
       .submit button {
         width: 100%;
@@ -156,75 +173,60 @@
       .footer {
         display: flex;
         justify-content: space-between;
+        margin-top: 20px;
       }
 
-      .footer .contacMethod {
+      .contacMethod {
         font-family: "Montserrat", sans-serif;
         font-size: 13px;
         font-weight: bold;
+        line-height: 20px;
+        letter-spacing: 2%;
       }
 
-    </style>
-  </head>
-  <body>
-    <div class="main">
-      <div class="sidea">
-        <div class="head">
-          <h1>Get in touch</h1>
-          <p>
-            Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo
-            molestie vel, ornare non id blandit netus.
-          </p>
-        </div>
-        <form>
-          <input type="text" placeholder="Contact name" />
-          <input type="text" placeholder="Street" />
-          <div class="cityPost">
-            <input type="text" placeholder="City" />
-            <input type="text" placeholder="Postcode" />
-          </div>
-          <input type="text" placeholder="Contact Phone" />
-          <input type="email" placeholder="E-mail" />
-          <input type="text" placeholder="Let’s talk about your idea" />
-        </form>
-        <div class="drop">Upload Additional file</div>
-        <p class="dropBottom">
-          Attach file. File size of your documents should not exceed 10MB
-        </p>
-        <div class="checkbox">
-          <input type="checkbox" name="checkbox" id="checkbox" />
-          <label for="checkbox"
-            >I want to protect my data by signing an NDA</label
-          >
-        </div>
-        <div class="submit">
-          <button type="button">SUBMIT</button>
-        </div>
-        <div class="footer">
-          <div class="icon"><img src="pics/phone.png" alt="icon" /></div>
-          <div class="phone">
-            
-            <div class="contacMethod">Phone</div>
-            <div class="contactName">111 111 111</div>
-          </div>
-          <div class="icon"><img src="pics/email.png" alt="icon" /></div>
-          <div class="mail">
-            <div class="contacMethod">E-MAIL</div>
-            <div class="contactName">info@company.com</div>
-          </div>
-          <div class="icon"><img src="pics/email.png" alt="icon" /></div>
-          <div class="helpdesk">
-            <div class="contacMethod">HELPDESK</div>
-            <div class="contactName">https://helpdesk.com</div>
-          </div>
-        </div>
-      </div>
+      .contactName {
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        color: #dd5471;
+        line-height: 20px;
+        letter-spacing: 2%;
+      }
 
-      <div class="sideb">
-        <div class="map">
-          <img src="pics/Slice 3 (1) 1.png" alt="map" />
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+      .method {
+        display: flex;
+        gap: 15px;
+      }
+
+      #touch {
+        color: #6de1c2;
+      }
+      .map {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        
+        
+      }
+
+      .cube {
+        content: "Headquarters Company s. r. o. Street. 51 100 00 Prague";
+        width: 157px;
+        height: 98px;
+        background-color: white;
+        border-color: white;
+        border-radius: 10px;
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        color: #0982fe;
+        line-height: 21px;
+        letter-spacing: 1%;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        text-align: left;
+        padding-left: 10px;
+        padding-top: 5px;
+      }
+      .icon {
+        padding-top: 5px;
+      }

@@ -56,6 +56,7 @@ position: relative;
     display: flex;
     gap: 0px;
   }
+  
   .main::after {
     width: 2%;
   }
@@ -87,22 +88,36 @@ position: relative;
     margin: 0px;
   }
 
-   iframe {
-    width: 100%;
-    height: 100%;
-    margin-top: 0px;
-  }
-}
+  .sideb img {width: 100%;
+  height: 415px;}
+  p {display: none;}
 
-.head {
+  .head .pMobile {display: block;
+  font-size: 24px;
   font-family: "Montserrat", sans-serif;
+  text-align: center;
 }
 
-h1 {
+
+
+   
+
+
+}
+
+p {font-size: 16px;
+  font-family: "Montserrat", sans-serif;font-family: "Montserrat", sans-serif;
+}
+
+ h1 {
   font-size: 46px;
   margin: 0px;
   font-weight: bold;
   letter-spacing: 1%;
+  font-family: "Montserrat", sans-serif;
+}
+.pMobile {
+  display: none;
 }
 .dropBottom {
   font-size: 14px;

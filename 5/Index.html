@@ -1,107 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form</title>
 
-    <style>
-      body {background-image: url(img/left\ \(1\).svg);
-        margin: 0;
-        box-sizing: border-box;
-        display: flex;
-        gap: 100px;
-        justify-content: space-be;
-        align-items: center;
-        gap: 0px;
-        height: 100%;
-        background-repeat: no-repeat;
-    gap: 10px
-    
-        width: 100%;
-      }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
+  <style>
+    body {
+      background-image: url(img/left\ \(1\).svg);
+      margin: 0;
+      box-sizing: border-box;      
+      height: 100%;
+      background-repeat: no-repeat;      
+      max-width: 1440px;
+      width: 100%;
+      padding: 0px;
+    }
+
+    .mainPage {display: flex;
       
-
-      .sideRight {display: flex;  
-        justify-content: center;
-        align-items: center;  
-    flex-direction: column;  
-    width: 70%; 
-    height: 100%;   
-
-}
-.text {margin-left: 70px;
-margin-top: 80px;}
-
     
-
-
-
-
-
-
-
-.sideLeft {width: 30%;
-display: block;
-text-align: left;
-font-size: 18px;
-line-height: 26px;
-color: white;
-font-family: 'Open Sans', sans-serif;
-height: 100%;
-}
-
-p {width: 100%;}
-
-
-    </style>
-  </head>
-
-  <body>
     
-      <div class="sideLeft">
-        <div class="text">
+    }
+
+
+    .sideRight {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 70%;
+      height: 100%;
+      
+    }
+
+    .text {
+      margin-left: 70px;
+      margin-top: 80px;
+      
+    }
+
+
+
+
+
+
+
+
+
+    .sideLeft {
+      width: 30%;
+      display: block;
+      text-align: left;
+      font-size: 18px;
+      line-height: 26px;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      height: 100%;
+    }
+
+    .textDekstop1 {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="mainPage">
+
+    <div class="sideLeft">
+      <div class="text">
         <img src="img/logo.png" alt="">
-        
-        <p>We are an experience maker , we help you to have a better experience in visual communication</p>
+        <div class="textDekstop1">We are an experience maker , we help you to have a better experience in visual communication</div>
       </div>
-</div>
+    </div>
 
 
-
-
-
-
-
-      <div class="sideRight">
-        <div class="header">
-          <h2>Sign in to Pixelonium</h2>
-          <p>Login by Your Secure Account</p>
-        </div>
-        
-          <div class="buttons">
-            <button>Sign in with Google</button>
-            <button>F</button>
+    <div class="sideRight">
+      <div class="header">
+        <div class="textDekstop2">Sign in to Pixelonium</div>
+        <div class="textDekstop3">Login by Your Secure Account</div>
       </div>
-            <form>
-              <input type="text" placeholder="Username, Email or Phone Number">
-            </form>
-
-            <div>Forget password?Click here</div>
-
-            <button>Continue</button>
-
-            <div>Questions? Email us at support@pixelonium.com</div>
-
-
-            </div>           
-        </div>
+      <div class="buttons">
+        <button>Sign in with Google</button>
+        <button>F</button>
       </div>
-   
-  </body>
+      <form>
+        <input type="text" placeholder="Username, Email or Phone Number">
+      </form>
+      <div class="textDekstop4">Forget password?Click here</div>
+      <button>Continue</button>
+      <div class="textDekstop5">Questions? Email us at support@pixelonium.com</div>
+    </div>
+  </div>
+  </div>
+</body>
+
 </html>

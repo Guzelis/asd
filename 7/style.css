@@ -1,0 +1,97 @@
+header {
+    padding: 2.25rem 0;
+}
+
+@font-face {
+    font-family: "CircularSTD";
+    src: url(fonts/circularstd-book-webfont.woff) format(woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "CircularSTD";
+    src: url(fonts/circularstd-bold-webfont.woff) format(woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "CircularSTD";
+    src: url(fonts/circularstd-black-webfont.woff) format(woff);
+    font-weight: 800;
+}
+
+body {
+    font-family: "CircularSTD";
+}
+
+nav.navbar {
+    font-size: 14px;
+}
+
+nav.navbar a {
+    color: #19182580;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav.navbar li.active a {
+    color: #222831;
+}
+
+:root {
+    --bs-border-radius: 1.5rem;
+}
+.btn {
+    --bs-btn-padding-x: 1.6rem;
+    --bs-btn-padding-y: 0.7rem;
+    font-weight: 600;
+}
+
+.btn-primary {
+    --bs-btn-bg: #5D50C6;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: #EEEEEE; 
+    --bs-btn-hover-bg: #211675;        
+}
+.btn-emty {
+    font-size: 14px;
+}
+
+.btn-shadow {
+    box-shadow: 0 15px 15px 0 #00000012;
+    --bs-btn-color: #F85E9F;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-shadow::after {
+    content: "";
+    background: url(icons/work\ 1.svg);
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.home h2 {
+    font-size: 69px;
+    font-weight: 600;
+    line-height: 120%;   
+}
+
+.home h2 span {
+    color: #F85E9F;
+}
+
+.home p {
+    font-size: 18px;
+    line-height: 160%;
+    color: #19182579;
+    font-family: 'Inter', sans-serif;
+
+
+
+}

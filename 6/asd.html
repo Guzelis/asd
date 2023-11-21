@@ -28,30 +28,54 @@
         margin: 100px auto;
         width: 100%;
         border-radius: 20px;
-        height: 100px;
+        position: relative;
         display: flex;        
         background-color: white ;
         height: 100%;
         gap: 50px;
+        overflow: hidden;
+        
         
        
       }
-    .shop1 {display: flex;
+
+      .main::after {content: "";
+        width: 400px;
+        height: 100%;
+        background-color: rgb(152, 148, 148);
+        position: absolute;
+        top: 0;
+        right: 0;
+        
+      }
+
+
+    .shop1, .shop2, .shop3 {display: flex;
         justify-content: space-between; 
         align-items: center;
+        border-top: 1px solid black;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        
           
     }
 
-.head {display: flex;    
-    gap: 450px;
-    margin-bottom: 50px;
-    align-items: center;
+    .shop1 
 
+
+
+    .shop3 {border-bottom: 1px solid black;}
+
+.head {display: flex;    
+    justify-content: space-between;
+    margin-bottom: 60px;
+    align-items: center;
+    
 
 }
 .sidea {width:75%;
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 50px;z-index: 1;
    
     
 
@@ -63,22 +87,32 @@ justify-content: start;
 flex-direction: column;
 margin: 50px;
 gap: 10px;
+z-index: 1;
 
 
 
 
 }
 
-.price {display: flex;
-justify-content: space-between;}
+.totalPrice {display: flex;
+justify-content: space-between;
+border-top: 1px solid black;
+padding-top: 20px;}
+
+
+
 .price p {margin: 0;}
 
 
 
 
-.sideb input {width: 300px;}
+.sideb input {width: 300px;
+background-color: rgb(152, 148, 148) ;
+border: 1px solid black;}
 
 .final {display: flex; justify-content: space-between;
+  border-top: 1px solid black;
+  padding-top: 20px;
 
 
 }
@@ -93,19 +127,33 @@ gap: 15px;
 .code {display: flex;
 flex-direction: column;
 gap: 15px;
+margin-top: 20px;
+margin-bottom: 50px;
 
 }
 
-.sidea input {width: 70px;}
+.sidea input {width: 70px;
+}
 
 .type p {margin: 0;}
 
  .button button {width: 100%;
-margin-top: 50px;}
+margin-top: 40px;
+margin-bottom: 50px;
+border: 1px solid black;
+border-radius: 5px;
+color: white;
+background-color: black;
+height: 60px;}
 
 
+ .exit {margin-top: 100px;
+display: flex;
+gap: 10px;
+}
 
 
+.summary {margin-bottom: 50px;}
 
 
 
@@ -127,7 +175,7 @@ margin-top: 50px;}
           </div>
           <div class="type">
             <p>Shirt</p>
-            <p>Cotton shirt</p>
+            <p>Cotton T-shirt</p>
           </div>
           <div class="sum">
             <i class="bi bi-dash"></i>
@@ -141,13 +189,13 @@ margin-top: 50px;}
             <i class="bi bi-x"></i>
           </div>
         </div>
-        <div class="shop1">
+        <div class="shop2">
           <div class="photo">
             <img src="blank-1886008_640.webp" width="100px" height="100px" />
           </div>
           <div class="type">
             <p>Shirt</p>
-            <p>Cotton shirt</p>
+            <p>Cotton T-shirt</p>
           </div>
           <div class="sum">
             <i class="bi bi-dash"></i>
@@ -161,13 +209,13 @@ margin-top: 50px;}
             <i class="bi bi-x"></i>
           </div>
         </div>
-        <div class="shop1">
+        <div class="shop3">
           <div class="photo">
             <img src="blank-1886008_640.webp" width="100px" height="100px" />
           </div>
           <div class="type">
             <p>Shirt</p>
-            <p>Cotton shirt</p>
+            <p>Cotton T-shirt</p>
           </div>
           <div class="sum">
             <i class="bi bi-dash"></i>
@@ -182,17 +230,21 @@ margin-top: 50px;}
           </div>
         </div>
         <div class="exit">
+          <i class="bi bi-arrow-left"></i>
           <p>Back to Shop</p>
         </div>
       </div>
 
+
+
+
       <div class="sideb">
         <div class="summary">
-            <h1>SUMMARY</h1>
+            <h1>Summary</h1>
         </div>
         <div class="final">
-            <p>items 3</p>
-            <p>€ 44.00</p>
+            <p>ITEMS 3</p>
+            <p>€ 132.00</p>
         </div>
         <div class="shipping">
         <label for="">SHIPPING</label>
@@ -200,9 +252,9 @@ margin-top: 50px;}
         </div>
         <div class="code">
         <label for="code">GIVE CODE</label>
-        <input type="text" id="code">
+        <input type="text" id="code" placeholder="Enter code">
         </div>
-        <div class="price">
+        <div class="totalPrice">
             <p>TOTAL PRICE</p>
             <p>€ 137.00</p>
         </div>

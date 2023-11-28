@@ -21,7 +21,7 @@ header {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -117,12 +117,38 @@ nav.navbar li.active a {
   font-size: 14px;
 }
 
+.sectionHeader h3 {
+  text-transform: uppercase;
+  color: #f85e9f;
+  font-size: 23px;
+  line-height: 120%;
+  letter-spacing: 20%;
+  font-weight: 600;
+}
+
+.sectionHeader h2 {
+  font-size: 44px;
+  line-height: 120%;
+  font-weight: 600;
+}
+
 .btn-outline-primary::before {
   content: "";
   background: url(icons/play-circle.5\ 1.svg);
   width: 24px;
   height: 24px;
   display: block;
+}
+.service h3 {
+  font-size: 28px;
+  line-height: 120%;
+  font-weight: 600;
+}
+.service p {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 160%;
+  color: #19182581;
 }
 
 .hamburger {
@@ -178,6 +204,12 @@ nav.navbar li.active a {
   input[name="nav-toggler"]:checked + nav::after {
     left: 280px;
   }
+
+  .sectionHeader h2 {
+    font-size: 40px;
+    line-height: 120%;
+    font-weight: 600;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -186,4 +218,29 @@ nav.navbar li.active a {
     line-height: 120%;
     font-weight: 600;
   }
+
+  .service h3 {
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 600;
+  }
+
+  .sectionHeader h3 {
+    font-size: 16px;
+    line-height: 120%;
+    font-weight: 600;
+    letter-spacing: 20%;
+  }
+
+  .sectionHeader h2 {
+    font-size: 32px;
+    line-height: 120%;
+    font-weight: 600;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

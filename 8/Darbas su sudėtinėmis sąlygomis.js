@@ -86,3 +86,51 @@ if (numb <= 5) {
 } else {
   console.log(`Skaicius ${numb}, nepriklauso nei vienai kategorijai`);
 }
+
+console.log("\n");
+
+//2 Atstumas tarp automobilių lygus s0 km. Jie vienu metu pradeda važiuoti. Antrasis automobilis vejasi pirmąjį. Automobilių greičiai  v1 ir v2 km/h - sveikieji skaičiai. Parašykite programą, kuri apskaičiuotų atstumą s tarp automobilių po t valandų ir apibūdintų situaciją (niekada nepavys, aplenkė, pavys, pasivijo).
+//Pvz.: s0 = 200, v1 = 80, v2 = 50, t = 2, s = 260 km. Niekada nepavys;
+//s0 = 20, v1 = 70, v2 = 80, t = 3, s = 10 km. Aplenkė.
+
+let sNulinis = rand(0, 99);
+console.log(`pradinis atstumas- ${sNulinis}`);
+let vVienas = rand(0, 99);
+console.log(`pirmo automobilio greitis- ${vVienas}`);
+let vDu = rand(0, 99);
+console.log(`antro automobilio greitis- ${vDu}`);
+let t = rand(0, 99);
+console.log(`laikas- ${t}`);
+
+//s0 = 200, v1 = 80, v2 = 50, t = 2, s = 260 km.
+//260=200+160−100 st=s0+v1t−v2t
+
+let s = sNulinis + vVienas * t - vDu * t;
+console.log(`atstumas tarp automobiliu po ${t} valandu - ${s}`);
+if (s < 0) {
+  console.log(`aplenke`);
+} else if (s === 0) {
+  console.log(`pavijo`);
+} else if (s > 0) {
+  console.log(`niekada nepavys`);
+}
+console.log("\n");
+
+//3 Skaičiai t1, t2, t3 reiškia vidutinę trijų iš eilės einančių dienų temperatūrą. Kelias dienas temperatūra buvo neigiama, o kelias - teigiama? Rezultatą išspausdinkite žodžiais. Šiuo atveju 0 skaitome, kaip teigiamą temperatūrą.
+//Pvz.: t1 = 2, t2 = -5, t3 = 8, Rezultatas: Dvi dienas teigiama, vieną - neigiama.
+
+let t1 = rand(-99, 99);
+let t2 = rand(-99, 99);
+let t3 = rand(-99, 99);
+
+let countPlius = 0;
+let countMinus = 0;
+if (t1 < 0) countMinus++;
+else if (t1 >= 0) countPlius++;
+if (t2 < 0) countMinus++;
+else if (t2 >= 0) countPlius++;
+if (t3 < 0) countMinus++;
+else if (t3 >= 0) countPlius++;
+console.log(`teigiama - ${countPlius}`);
+console.log(`neigiama - ${countMinus}`);
+console.log(`Rezultatas: Dvi dienas teigiama, vieną - neigiama.`);

@@ -200,6 +200,18 @@ if (/[0-9]/.test(tekstas)) {
 } else {
 	console.log("Tekste nera skaiciu");
 }
+// Naujo aray sukurimas su pradiniais 4 elementais
+ let kint = new Array(4);
 
+//Naujo tuščio array sukurimas
+/let kint = [];
+//elemento pridejimas pagal indeksa ir reiksme
+kint[0] = rand(0, 2);
+
+//Prideda nauja elementa i gala
+kint.push(10);
+
+//Naujo array sukurimas su pradinemis reikšmėmis
+let kint = [rand(0, 2), rand(0, 2), rand(0, 2), rand(0, 2)];
 
 

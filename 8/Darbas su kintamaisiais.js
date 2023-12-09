@@ -1,3 +1,26 @@
+/*1.Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus (Jonas Jonaitis). Atspausdinti trumpesnį stringą.
+2.Sukurkite 4 kintamuosius, kurie saugotų jūsų vardą, pavardę, gimimo metus ir šiuos metus (nebūtinai tikrus). Parašykite kodą, kuris pagal gimimo metus paskaičiuotų jūsų amžių ir naudodamas vardo ir pavardės kintamuosius atspausdintų tokį sakinį :
+"Aš esu Vardenis Pavardenis. Man yra XX metai(ų)".
+3.Sukurkite 2 kintamuosius. Jiems priskirkite vartotojo vardą ir pavardę. Sukurti trečią kintamąjį ‘inicialai’ sudarytą iš dviejų pirmųjų vardo ir pavardės raidžių.
+4.Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš trijų paskutinių vardo ir pavardės kintamųjų raidžių. Jį atspausdinti.
+5.Sukurti kintamąjį data ir priskirti jai datos reikšmę tokiu formatu: YYYY-MM-DD, pvz: 2023-11-07. sukurkite programą, kuri pasiima mėnesio reikšmę ir atspausdina gauto mėnesio pavadinimą.
+6.Sukurti kintamąjį su stringu: “Once upon a time in hollywood”. Jame visas “o” (didžiąsias ir mažąsias) pakeisti žvaigždutėm “*”.  Rezultatą atspausdinti.
+7.Sukurkite keturis kintamuosius kuriems sugeneruokite atsitiktines reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų. 
+ 8.Pasinaudokite atsitiktinio skaičiaus generavimo funkcija. Sukurkite du kintamuosius ir naudodamiesi funkcija jiems priskirkite atsitiktines reikšmes nuo 0 iki 4. Didesnę reikšmę padalinkite iš mažesnės. Atspausdinkite rezultatą jį suapvalinę iki 2 skaičių po kablelio.
+9.Naudokite funkciją ir sukurkite tris kintamuosius kuriems priskirkite atsitiktines reikšmes nuo 0 iki 25. Raskite ir atspausdinkite vidurinę reikšmę.
+  10.Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis: 3 simboliai.
+ 11.Duotas tekstas, kuriame yra išimti pasikartojantys raktiniai žodžiai ir pakeisti šabloninėmis reikšmėmis. Užduotis: pakeiskite visas šablonines reikšmes pagal pateiktas reikšmes:
+planet – earth
+star – Sun
+age –  4.54 billion years
+satellite –  moon
+"The planet {{planet}} is the third planet from the {{star}}. {{planet}} is the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, {{planet}} formed over {{age}} ago. {{planet}}'s gravity interacts with other objects in space, especially the {{star}} and the {{satellite}}, {{planet}}'s only natural satellite."
+12.Pasinaudodami jau pateikta rand funkcija, sukurkite kitą funkciją, kuri sugeneruoja atsitiktinį skaičių nuo minimalios iki maksimalios reikšmės su dviem skaitmenimis po kablelio.
+
+13.Užduotis stipruoliams:
+Sukurti du kintamuosius a = 5 bei b = 20; Nepasinaudojant trečiu kintamuoju, apkeisti šių dviejų kintamųjų reikšmes vietomis;
+*/
+
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -249,3 +272,30 @@ console.log(String.fromCharCode(l, m, n));
 console.log("\n");
 
 //11
+
+let planet = "earth";
+let star = "Sun";
+let age = "4.54 billion years";
+let satellite = "moon";
+
+console.log(
+  `The planet ${planet} is the third planet from the ${star}. ${planet} is the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, ${planet} formed over ${age} ago. ${planet}'s gravity interacts with other objects in space, especially the ${star} and the ${satellite}, ${planet}'s only natural satellite.`
+);
+
+console.log("\n");
+
+//12
+
+function rand(min, max) {
+  a = Math.floor(Math.random() * (max - min + 1)) + min;
+  return a.toFixed(2);
+}
+
+asd = rand(0, 120);
+console.log(a.toFixed(2));
+
+console.log("\n");
+
+//13
+
+console.log("\n");

@@ -1,0 +1,246 @@
+header {
+  padding: 2.25rem 0;
+}
+
+@font-face {
+  font-family: "CircularSTD";
+  src: url(fonts/circularstd-book-webfont.woff) format(woff);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "CircularSTD";
+  src: url(fonts/circularstd-bold-webfont.woff) format(woff);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "CircularSTD";
+  src: url(fonts/circularstd-black-webfont.woff) format(woff);
+  font-weight: 800;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "CircularSTD";
+}
+
+nav.navbar {
+  font-size: 14px;
+}
+
+nav.navbar a {
+  color: #19182580;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav.navbar li.active a {
+  color: #222831;
+}
+
+:root {
+  --bs-border-radius: 1.5rem;
+}
+.btn {
+  --bs-btn-padding-x: 1.6rem;
+  --bs-btn-padding-y: 0.7rem;
+  font-weight: 600;
+}
+
+.btn-primary {
+  --bs-btn-bg: #5d50c6;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: #eeeeee;
+  --bs-btn-hover-bg: #211675;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-emty {
+  font-size: 14px;
+}
+
+.btn-shadow {
+  box-shadow: 0 15px 15px 0 #00000012;
+  --bs-btn-color: #f85e9f;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-shadow::after {
+  content: "";
+  background: url(icons/work\ 1.svg);
+  width: 24px;
+  height: 24px;
+}
+
+.home h2 {
+  font-size: 69px;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.home h2 span {
+  color: #f85e9f;
+}
+
+.home p {
+  font-size: 18px;
+  line-height: 160%;
+  color: #19182579;
+  font-family: "Inter", sans-serif;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-outline-primary {
+  --bs-btn-border-color: #eeeeee;
+  --bs-btn-color: #222831;
+  --bs-btn-hover-color: #222831;
+  --bs-btn-hover-bg: #eeeeee;
+  --bs-btn-hover-border-color: #eeeeee;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 14px;
+}
+
+.sectionHeader h3 {
+  text-transform: uppercase;
+  color: #f85e9f;
+  font-size: 23px;
+  line-height: 120%;
+  letter-spacing: 20%;
+  font-weight: 600;
+}
+
+.sectionHeader h2 {
+  font-size: 44px;
+  line-height: 120%;
+  font-weight: 600;
+}
+
+.btn-outline-primary::before {
+  content: "";
+  background: url(icons/play-circle.5\ 1.svg);
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.service h3 {
+  font-size: 28px;
+  line-height: 120%;
+  font-weight: 600;
+}
+.service p {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 160%;
+  color: #19182581;
+}
+
+.hamburger {
+  border: none;
+  width: 48px;
+  height: 49px;
+  background: url(icons/menu.11\ 1.svg) no-repeat center center;
+}
+
+@media screen and (min-width: 992px) {
+  nav.navbar {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  nav.navbar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    background-color: white;
+    padding: 1rem;
+    font-size: 18px;
+    border-right: 1px solid black;
+    height: 100vh;
+    z-index: 1000;
+    width: 280px;
+    transition: left 0.5s ease-in-out;
+  }
+
+  nav.navbar::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    background-color: rgba(0, 0, 0, 0.299);
+    width: calc(100vw - 280px);
+    height: 100vh;
+    transition: left 0.5s ease-in-out;
+  }
+
+  .home h2 {
+    font-size: 56px;
+    line-height: 120%;
+    font-weight: 600;
+  }
+
+  input[name="nav-toggler"]:checked + nav {
+    display: block;
+    left: 0;
+  }
+
+  input[name="nav-toggler"]:checked + nav::after {
+    left: 280px;
+  }
+
+  .sectionHeader h2 {
+    font-size: 40px;
+    line-height: 120%;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home h2 {
+    font-size: 40px;
+    line-height: 120%;
+    font-weight: 600;
+  }
+
+  .service h3 {
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 600;
+  }
+
+  .sectionHeader h3 {
+    font-size: 16px;
+    line-height: 120%;
+    font-weight: 600;
+    letter-spacing: 20%;
+  }
+
+  .sectionHeader h2 {
+    font-size: 32px;
+    line-height: 120%;
+    font-weight: 600;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .container {
+        width: 450px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Skaičiaus atspėjimo žaidimas</h2>
+      <p class="rules">
+        <b>Taisyklės:</b> Buvo sugeneruotas skaičius nuo 1 iki 20. Įveskite savo
+        spėjimą. Jei spėjimas buvo mažesnis arba didesnis nei sugeneruotas
+        skaičius, programa jums apie tai praneš. Iš viso turite
+        <b id="total-guess">6</b> spėjimus
+      </p>
+      <input id="guess-number" type="number" placeholder="Enter you number" />
+      <button id="btn">Bandyti</button>
+      <p id="rez"></p>
+    </div>
+    <script src="Game.js"></script>
+  </body>
+</html>

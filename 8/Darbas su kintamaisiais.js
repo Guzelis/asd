@@ -61,40 +61,40 @@ console.log("\n");
 
 let date = "2023-06-23";
 
-if (date[5] + date[6] == 1) {
+if (date[5] + date[6] === 1) {
   console.log("January");
 }
-if (date[5] + date[6] == 2) {
+if (date[5] + date[6] === 2) {
   console.log("February");
 }
-if (date[5] + date[6] == 3) {
+if (date[5] + date[6] === 3) {
   console.log("March");
 }
-if (date[5] + date[6] == 4) {
+if (date[5] + date[6] === 4) {
   console.log("April");
 }
-if (date[5] + date[6] == 5) {
+if (date[5] + date[6] === 5) {
   console.log("May");
 }
-if (date[5] + date[6] == 6) {
+if (date[5] + date[6] === 6) {
   console.log("June");
 }
-if (date[5] + date[6] == 7) {
+if (date[5] + date[6] === 7) {
   console.log("July");
 }
-if (date[5] + date[6] == 8) {
+if (date[5] + date[6] === 8) {
   console.log("August");
 }
-if (date[5] + date[6] == 9) {
+if (date[5] + date[6] === 9) {
   console.log("September");
 }
-if (date[5] + date[6] == 10) {
+if (date[5] + date[6] === 10) {
   console.log("October");
 }
-if (date[5] + date[6] == 11) {
+if (date[5] + date[6] === 11) {
   console.log("November");
 }
-if (date[5] + date[6] == 12) {
+if (date[5] + date[6] === 12) {
   console.log("December");
 }
 
@@ -108,7 +108,7 @@ let a = "Once upon a time in hollywood";
 
 //console.log(b);
 
-let b = a.replace(/[Oo]/g, "*");
+let b = a.replace(/[O,o]/g, "*");
 
 console.log(b);
 
@@ -128,6 +128,48 @@ console.log(e);
 let f = rand(0, 2);
 console.log(f);
 
+let sum0 = 0,
+  sum1 = 0,
+  sum2 = 0;
+
+if (c === 0) {
+  sum0++;
+}
+if (d === 0) {
+  sum0++;
+}
+if (e === 0) {
+  sum0++;
+}
+if (f === 0) {
+  sum0++;
+}
+if (c === 1) {
+  sum1++;
+}
+if (d === 1) {
+  sum1++;
+}
+if (e === 1) {
+  sum1++;
+}
+if (f === 1) {
+  sum1++;
+}
+if (c === 2) {
+  sum2++;
+}
+if (d === 2) {
+  sum2++;
+}
+if (e === 2) {
+  sum2++;
+}
+if (f === 2) {
+  sum2++;
+}
+console.log(`vienetai ${sum1}, nuliai ${sum0}, dvejetai ${sum2}`);
+
 console.log("\n");
 
 //8
@@ -139,9 +181,11 @@ let h = rand(0, 4);
 console.log(h);
 
 if (g >= h) {
-  console.log((g / h).toFixed(2));
+  let rez = g / h;
+  console.log(+rez.toFixed(2));
 } else if (h >= g) {
-  console.log((h / g).toFixed(2));
+  let rez = h / g;
+  console.log(+rez.toFixed(2));
 }
 
 console.log("\n");

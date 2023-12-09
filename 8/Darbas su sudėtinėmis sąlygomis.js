@@ -4,7 +4,16 @@ function rand(min, max) {
 
 let numb = rand(0, 99);
 
-/*if (numb < 10) {
+/*Sąlyga: Generuojamas skaičius tarp 0 ir 99;
+Kategorija 1: 0  - 10 - pakelti skaičių kvadratu ir atspausdinti
+Kategorija 2: 11 - 19  - atspausdinti skaičių tokį koks jis yra;
+Kategorija 3: 20 - 49  ir skaičius yra lyginis: Skaičiaus dešimtis atimti iš paties skaičiaus ir atspausdinti
+Kategorija 4: 20 - 49  ir skaičius yra nelyginis: Skaičiaus vienetus pridėti prie paties skaičiaus ir padalinti iš 2. Galiausiai atspausdinti;
+Kategorija 5: >= 50 ir skaičius dalinasi iš 3 be liekanos: Sudarykite atsitiktinį stringą iš 4 raidžių ir jį atspausdinkite
+Visais kitais, nepaminėtais atvejais išvesti: skaičius netinkamas nei vienai kategorijai;
+*/
+
+if (numb < 10) {
   let rez = numb ** 2;
   console.log(
     `Skaičius - ${numb}, Kategorija 1, operacijos rezultatas: ${rez}`
@@ -37,6 +46,16 @@ let numb = rand(0, 99);
 } else {
   console.log(`skaičius ${numb} netinkamas nei vienai kategorijai`);
 }
+
+console.log("\n");
+
+/*Antras variantas
+
+Kategorija 1: 0 – 5. skaičius dauginamas iš 3
+Kategorija 2: 6 – 15. iš skaičiaus atsiima 4 ir rezultatas pakeliamas kvadratu
+Kategorija 3: 16 - 30 ir dalijasi iš 5. Prie skaičiaus pridedame 10
+Kategorija 4: 31 - 45 ir skaičius nelyginis. Skaičių atimame iš 100
+Kategorija 5: 46 – 99 ir skaičiai pasibaigiantys 6 arba 7. Skaičių daliname iš 4
 */
 
 if (numb <= 5) {

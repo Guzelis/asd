@@ -131,7 +131,10 @@ console.log(f);
 let sum0 = 0,
   sum1 = 0,
   sum2 = 0;
-
+/*if (c === 0) count0++;
+else if (c === 1) count1++;
+else c++;
+*/
 if (c === 0) {
   sum0++;
 }
@@ -182,10 +185,10 @@ console.log(h);
 
 if (g >= h) {
   let rez = g / h;
-  console.log(+rez.toFixed(2));
+  console.log(rez.toFixed(2));
 } else if (h >= g) {
   let rez = h / g;
-  console.log(+rez.toFixed(2));
+  console.log(rez.toFixed(2));
 }
 
 console.log("\n");

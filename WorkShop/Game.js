@@ -1,12 +1,11 @@
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 let btn = document.querySelector("#btn");
+btn.addEventListener("click", guessNumber);
+
 let numb = rand(1, 20),
   count = 6;
-
-btn.addEventListener("click", guessNumber);
 
 function guessNumber() {
   let guessNumberValue = document.querySelector("#guess-number");

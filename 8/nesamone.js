@@ -203,8 +203,13 @@ if (/[0-9]/.test(tekstas)) {
 // Naujo aray sukurimas su pradiniais 4 elementais
  let kint = new Array(4);
 
+ //elemento iš masyvo reikšmės paėmimas pagal indeksą
+console.log(kint);
+console.log(kint[1]);
+
 //Naujo tuščio array sukurimas
 /let kint = [];
+
 //elemento pridejimas pagal indeksa ir reiksme
 kint[0] = rand(0, 2);
 
@@ -213,5 +218,59 @@ kint.push(10);
 
 //Naujo array sukurimas su pradinemis reikšmėmis
 let kint = [rand(0, 2), rand(0, 2), rand(0, 2), rand(0, 2)];
+
+ //elemento iš masyvo reikšmės paėmimas pagal indeksą
+console.log(kint);
+console.log(kint[1]);
+
+//.fill(x) užpildo visus masyvo elementus tam tikra reikšme
+let count = new Array(3).fill(0); uzpildo 0
+
+//begalinis ciklas
+while (true) {
+    console.log(i);
+    i++;
+}
+ 
+//Ciklai
+
+let zmones = ["Petras", "Rasa", "Jonas", "Justinas", "Jurate", "Kastytis"];
+let i = 0;       0         1        2         3          4         5
+
+while (i < 100) {	
+i++;
+console.log(i);} consolej nuo 1 iki 100
+
+while (i < zmones.length) {
+    console.log(zmones(i).toUpperCase());
+    i++;} keis visus i didziasias raides zmones(i) tai masyvo nr 1 2 3 4 5 gali buti ir i < 5 tada pakeis tik 5 o su .length keis visus
+
+
+//begalinis ciklas
+while (true) {	
+console.log(i);
+if (i === 100) break; break - nutraukia ciklą///////
+i++;}
+
+//do while mes naudojame kai norime pirma atlikti operacija, o tik po to patikrinimą
+do{
+i++
+}
+while(i < 10) pirma padaro paskui tikraina atvirksciai nei while 
+
+for (let indeksas = 0; indeksas < 1000; indeksas++) nuo 0 oko 1000
+for (let indeksas = 0; indeksas < n; indeksas += 4) kas ketvirtas
+for (let indeksas = 100; indeksas < n; indeksas += 4) kas ketvirtas nuo 100
+
+// paraso kaip console tik ekrane
+document.write(eilute);
+
+//style aprasymas scripte
+document.write('<b class="" style="color: blue;">asdasd</b>') jei yra vienodos kabutes tai reik naudot style =\" color: blue;\"
+
+
+
+if (xxxxx % 2 === 0) patikrina ar lyginis skaicius
+
 
 

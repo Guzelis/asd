@@ -299,3 +299,16 @@ console.log("\n");
 //13
 
 console.log("\n");
+
+let aaaa = 5;
+let bbbb = 20;
+
+if (aaaa < bbbb) {
+  aaaa = bbbb;
+  console.log(aaaa);
+}
+
+if (bbbb > aaaa) {
+  bbbb = aaaa;
+  console.log(bbbb);
+}

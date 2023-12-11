@@ -273,7 +273,7 @@ console.log("\n");
 
 //11
 
-let planet = "earth";
+/*let planet = "earth";
 let star = "Sun";
 let age = "4.54 billion years";
 let satellite = "moon";
@@ -281,6 +281,18 @@ let satellite = "moon";
 console.log(
   `The planet ${planet} is the third planet from the ${star}. ${planet} is the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, ${planet} formed over ${age} ago. ${planet}'s gravity interacts with other objects in space, especially the ${star} and the ${satellite}, ${planet}'s only natural satellite.`
 );
+*/
+
+let tekst =
+  "The planet {{planet}} is the third planet from the {{star}}. {{planet}} is the only astronomical object known to harbor life. According to radiometric dating and other sources of evidence, {{planet}} formed over {{age}} ago. {{planet}}'s gravity interacts with other objects in space, especially the {{star}} and the {{satellite}}, {{planet}}'s only natural satellite.";
+
+let tekstA = tekst
+  .replaceAll("{{planet}}", "earth")
+  .replaceAll("{{star}}", "Sun")
+  .replaceAll("{{age}}", "4.54 billion years")
+  .replaceAll("{{satellite}}", "moon");
+
+console.log("tekstA");
 
 console.log("\n");
 

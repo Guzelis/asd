@@ -149,7 +149,7 @@ let part = text.slice(7, 13); Banana
 part = text.slice(0, -6); Apple Banana
 
 //simboliu pasalinimas nuo pradžios iki ....
-part = text.slice(7); Banana Apple
+part = text.slice(7); Banana 
 
 //Simboliu nuo galo gavimas
 part = text.slice(-4);Kiwi trina nuo pradzios bet palieka gala -4
@@ -179,7 +179,7 @@ inputoInformacija = informacija.value
 
 
 //HTML lemento pakeitimas
-paragrafas.innerText(HTML) = "pakeistas tekstas";
+paragrafas.inner(Text arba HTML) = "pakeistas tekstas";
 inne
 
 // elementas.value - iš inputo ištraukia informaciją;
@@ -200,6 +200,41 @@ if (/[0-9]/.test(tekstas)) {
 } else {
 	console.log("Tekste nera skaiciu");
 }
+
+//Masyvai Array
+
+let naujasMasyvas = [1, 8, 7, 3, 46, 9, 7, 8];
+//Kai norime pridėti elementus prie masyvo:
+naujasMasyvas.push(",");
+
+//Pašalinimas elemento iš masyvo galo:
+naujasMasyvas.pop();
+
+// Elemento šalinimas iš priekio:
+naujasMasyvas.shift();
+
+// Elemento šalinimas pagal indeksą
+// masyvoPavadinimas.splice(nuoKur, kiek)
+naujasMasyvas.splice(3, 1);
+console.log(naujasMasyvas);
+
+// Elemento šalinimas nuo galo
+naujasMasyvas.splice(-1);
+console.log(naujasMasyvas);
+
+// Prideti nauja elementa i masyvo prieki
+naujasMasyvas.unshift(12);
+
+// Masyvo elementu atspausdinimas pasinaudojant delimiteriu
+console.log(naujasMasyvas.join(", "));
+// console.log("<li>" + naujasMasyvas.join("</li><li>") + "</li>");
+
+//Masyvo apsukimas antraip.
+naujasMasyvas.reverse();
+
+ //msayvo kintamuju nuo galo salinimas ciklu
+    for (let i = masyvas.length - 1; i >= ; i--);
+
 // Naujo aray sukurimas su pradiniais 4 elementais
  let kint = new Array(4);
 
@@ -266,11 +301,34 @@ for (let indeksas = 100; indeksas < n; indeksas += 4) kas ketvirtas nuo 100
 document.write(eilute);
 
 //style aprasymas scripte
-document.write('<b class="" style="color: blue;">asdasd</b>') jei yra vienodos kabutes tai reik naudot style =\" color: blue;\"
+document.write('<b class="asd" style="color: blue;">asdasd</b>') jei yra vienodos kabutes tai reik naudot style =\" color: blue;\"
 
 
 
 if (xxxxx % 2 === 0) patikrina ar lyginis skaicius
 
+let fibonacci = [0, 1];
 
+// Elemento idejimas i masyvo vieta pagal indeksa
+fibonacci[2] = fibonacci[1] + fibonacci[0];
 
+// Elemento pridejimas prie masyvo galo
+fibonacci.push(fibonacci[1] + fibonacci[0]);
+
+//funkcijos
+
+//Sukuriama funkcija su pavadinimu generateArrayOfRandomNumbers
+//Skliausteliuose nurodomi naudotini funkcijos parametrai.
+function generateArrayOfRandomNumbers(min, max, countOfElements) { // min = 5 ar max = 5 suteikiama defaultine reiksmo jei nieko neivedi
+	let array = [];
+	for (let i = 0; i < countOfElements; i++) {
+		array.push(rand(min, max));
+	}
+	//gražinama reikšmė
+	return array;
+
+}function getNextElement(array, index) {
+	if (array.length - 1 === index) return array[0];
+	else return array[index + 1];
+
+}

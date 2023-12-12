@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Table.css">
+    
+  </head>
+  <body>   
+    <table>
+      <thead>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Nationality</th>
+        <tbody>                 
+        </tbody>
+      </thead>
+    </table>
+    <div class="forms">
+        <div class="add-form">
+            <h1>Add elements</h1>
+            <form>
+                <div class="in-form">
+                    <label for="name">First name</label>
+                    <input type="text" id="name" placeholder="First name" required: required />
+                </div>
+                <div class="in-form">
+                    <label for="last">Last name</label>
+                    <input type="text"  id="last" placeholder="Last name" required />
+                </div>
+                <div class="in-form">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" placeholder="Age" required />
+                </div>
+                <div class="in-form">
+                    <label for="nationality">Nationality</label>
+                    <input type="text" id="nation" placeholder="Nationality" required />
+                </div>        
+            </form>
+                <button id="btn" type="submit">Submit</button>
+        </div> 
+        <div class="out-form">
+            <h1>Subtract elements</h1>
+            <form>
+                <div class="subt-form">
+                    <label for="number">Person number</label>
+                    <input type="number" id="number" placeholder="Person Number">
+                </div>
+            </form>
+                <button id="ntb" type="submit">Submit</button>
+        </div>
+    </div>   
+    <script src="Table.js"></script> 
+  </body>
+</html>

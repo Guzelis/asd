@@ -1,0 +1,54 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table {
+  width: 100%;
+}
+td {
+  text-align: center;
+}
+.in-form,
+.subt-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.add-form,
+.out-form {
+  width: 18%;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.in-form input,
+.subt-form input {
+  outline: none;
+  padding: 5px 0px 5px 15px;
+}
+button {
+  margin-left: 100px;
+  width: 80px;
+  height: 30px;
+  color: white;
+  background-color: #337ab7;
+  border-radius: 5px;
+  border: none;
+}
+.forms {
+  display: flex;
+  gap: 400px;
+}
+button:hover {
+  background-color: blue;
+}
+button:active {
+  transform: translateY(4px);
+}

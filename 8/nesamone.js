@@ -332,3 +332,97 @@ function generateArrayOfRandomNumbers(min, max, countOfElements) { // min = 5 ar
 	else return array[index + 1];
 
 }
+//objektai
+
+//JSON - JavaScript object notation
+
+//Tuscio objekto sukurimas
+const gyvunas = {};
+gyvunas.animalType = "Liutas";
+
+//Trys skirtingi budai, kaip galime kreiptis i objekto laukus
+
+let laukas = "animalType";
+console.log(gyvunas[laukas]);
+console.log(gyvunas["animalType"]);
+console.log(gyvunas.animalType);
+
+const dog = {
+breed: "German shepherd",
+name: "Angela",
+age: 7,
+colors: ["brown", "black"],
+}
+
+const dog = {};
+dog.breed = "German Shepherd";
+dog.name = "Angela";
+dog.age = 7;
+dog.colors = ["brown", "black"];
+
+const person = {
+	firstName: "John",
+	lastName: "Doe",
+	age: 36,
+	nationality: "British",
+	isMarried: true, false // cia ivesti true arba false
+	kids: ["Sara", "Boston"],
+};
+// Hello, my name is John Doe, my age is 36, I am British and my kids are Sara, Boston
+const greetingText = `Hello, my name is ${person.firstName} ${
+	person.lastName
+}, my age is ${person.age}, I am ${
+	person.nationality
+} and my kids are ${person.kids.join(", ")}. And I am ${
+	person.isMarried ? "Married" true : "Not married" false  // cia true arba false reiksmes
+}`;
+
+//Dinaminis savybiu paemimas:
+
+const dog = {
+breed: "German shepherd",
+name: "Angela",
+age: 7,
+colors: ["brown", "black"],
+}
+
+dog.breed = "German Shepherd";
+dog.name = "Angela";
+dog.age = 7;
+dog.colors = ["brown", "black"];
+
+for (let property in dog) {
+	console.log(`${property}: ${dog[property]}`);
+}
+
+
+
+const people = [
+	{
+		firstName: "Laura",
+		lastName: "Gonzales",  //ideksas 0
+		age: 25,
+		nationality: "Iraq",
+	},
+	{
+		firstName: "Saulius",
+		lastName: "Kreve",
+		age: 38,                    /// indeksas 1
+		nationality: "Lithuanian",
+		isMarried: false,
+	},
+	{
+		firstName: "John",
+		lastName: "Schmit",
+		age: 39,                       //ideksas 2
+		nationality: "Canada",
+	},
+];
+
+// Kreipimasis i objektus masyve
+console.log(people[1].firstName, people[1].lastName); // Saulius Kreve
+
+//Objektu pasiemimas is masyvo per cikla
+for (let person of people) {
+	console.log(person.firstName, person.lastName); laura gonzales, saulius kreve, John Schmit.
+}

@@ -80,3 +80,7 @@ for (let i = 0; i < 300; i++) {
 }
 //document.write(`<span style="color: red;>${randomNum}</span> `);
 console.log(numb150);
+
+console.log("\n");
+
+///8

@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  background-color: aqua;
+  width: 22rem;
+  color: black;
+  text-align: center;
+}
+div {
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 20px;
+}

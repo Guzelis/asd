@@ -426,3 +426,40 @@ console.log(people[1].firstName, people[1].lastName); // Saulius Kreve
 for (let person of people) {
 	console.log(person.firstName, person.lastName); laura gonzales, saulius kreve, John Schmit.
 }
+
+///validavimas 
+function validateFirstName(name) {
+    let isValid = true;
+
+    if (!name) {
+      isValid = false;
+    }
+    if (/[0-9]/.test(name)) {
+      isValid = false;
+    }
+    if (/[~!@#$%^&*[]()_-=?,.<>]/.test(name)) {
+      isValid = false;
+    }
+    return isValid;
+  }
+
+function validateAge(age) {
+  let is isValid = true;
+
+  if (!age) {
+    isValid = false;
+  }
+  if (isNaN(parseInt(age))) {
+    isValid = false;
+  }
+  if ( age < 0 || age > 200) {
+    isValid = false;
+  }
+  if (age % 1 !==0) {
+    isValid = false
+  }
+  return isValid;
+}
+
+
+

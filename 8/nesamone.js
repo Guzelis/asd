@@ -317,6 +317,103 @@ fibonacci.push(fibonacci[1] + fibonacci[0]);
 
 //funkcijos
 
+//Tai kas yra funkcijos deklaracijoje - yra parametras
+
+// arrow funkcija
+() => expression
+
+() => {
+	statements
+  };
+
+//funkciju uzrasymo budai
+
+let add = (a, b) => a + b;
+console.log(add(5, 5));s
+
+let add = function (a, b) {
+  return a + b;
+};
+console.log(add(5, 5));
+
+function add(a, b) {
+  return a + b;
+}
+console.log(add(5, 5));
+
+
+function showMessage(message) {
+	console.log(message);
+}
+
+ const showMessage = (message) => {
+console.log(message);
+};
+
+const showMessage = function (message) {
+console.log(message);
+};
+
+//Tai kas yra iskvietime tarp skliaustu - yra argumentas
+
+showMessage("Labas pasauli");
+
+// return grazina reiksme jei nera return buna undefined
+
+function findBiggerValue (a, b) {
+	if (a > b) return a;
+	else return b;
+}
+console.log(findBiggerValue(4, 5)); // pagal virsuj esancia funkcija gauni 5
+
+//tas pats bet panaudojus boolean (treu arba false) funkcija funkcijoj
+//naudoti nerekomenduotina
+function findBiggerValue(a, b) {
+	function isABiggerThanB(aValue, bValue) {
+		return aValue > bValue;
+	}
+	if (isABiggerThanB(a, b)) return a;
+	else return b;
+}
+
+// perdaryta virsuj esanti funkcija
+function isABiggerThanB(aValue, bValue) {
+	return aValue > bValue;
+}
+function findBiggerValue(a, b) {
+		if (isABiggerThanB(a, b)) return a;
+	else return b;
+}
+
+// rekursija
+function recursion(value) {
+	console.log("value: " + value);
+	if (value < 10) recursion(value + 1);
+	console.log(value);
+}
+
+recursion(4);
+
+//Rekursijos panaudojimas
+function factorial(n) {
+	if (n === 1) {
+		return 1;
+	} else {
+		return n * factorial(n - 1);
+	}
+}
+
+console.log(factorial(4));
+
+//callback funkcija
+function callBackFunction(message, callBack) {
+	console.log(message);
+	callBack();
+}
+callBackFunction(`labas pasauli`, () =>{console.log(`funkcijos pabaiga`);})
+
+
+
 //Sukuriama funkcija su pavadinimu generateArrayOfRandomNumbers
 //Skliausteliuose nurodomi naudotini funkcijos parametrai.
 function generateArrayOfRandomNumbers(min, max, countOfElements) { // min = 5 ar max = 5 suteikiama defaultine reiksmo jei nieko neivedi
@@ -395,6 +492,20 @@ for (let property in dog) {
 	console.log(`${property}: ${dog[property]}`);
 }
 
+/// ...args neribotas kiekis elementu/argumentu	... spread operatorius
+// funkcija kaip gauti maximalia reiksme
+function findMaximumValue (...args) {
+	let max = args[0]; // pirmas elementas
+	for (let index in args) {
+		if (args[index] > max) {
+			 max = args[index];}
+	};
+}
+
+Math.max // funkcija virsuj esanciai funkcijai. negalima ivesti stringo
+Math.min// minimali reiksme
+findMaximumValue(4, 7, 8, 100, 100, 150, -3)// sliaustuose cia yra ...args kiek nori tiek vedi
+findMaximumValue(...[4, 7, 8, 100, 100, 150, -3])// spread operatorius viska padaro kad butu ne lauztiniuose sklaisutuose
 
 
 const people = [

@@ -586,3 +586,86 @@ fetch("https://dog.ceo/api/breeds/list/all")
 	.then((atsakymas) => atsakymas.json())
 	.then((atsakymas) => console.log(atsakymas));
 //0.3sek
+
+
+// Error handlinimas
+const skaicius = 5;
+
+try {
+skaicius++;
+} catch (error) {
+console.log(error); /// skaicius yra konstanta bet jis yra keiciamas try catcha pahauna errora ir tesia darba
+}
+
+try {
+	fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink");
+} catch (error) {
+	console.log(error);
+}
+
+//promisas pazadas
+
+new Promise((resolve, reject) => { // resolvas yra .then rejectas yra .catch
+	
+})
+
+fetch(
+"https://www.thecocktaildb.com/apsi/json/v1/1/filter.php?c=Ordinary_Drink"
+)
+.then((response) => response.json())
+.then((response) => console.log(response))
+.catch((error) => console.log(error));
+
+/// sekminga uzklausa i serveri promisai
+
+const pazadas = new Promise((resolve, reject) => {	
+console.log("Prasidejo uzklausa i serveri");
+setTimeout(() => {
+resolve("Zinute is serverio"); //settimeout po kiek laiko prasides funkcija
+}, 1000);
+console.log("pasibaige uzklausa i serveri");
+}).then((atsakymas) => console.log(atsakymas));
+
+// nesekminga uzklausa i serveri promisai
+
+const pazadas = new Promise((resolve, reject) => {
+let isValidUrl = false;               //// jei sekminga tai turi buti true
+console.log("Prasidejo uzklausa i serveri");
+if (isValidUrl)
+etTimeout(() => {
+resolve("Zinute is serverio");
+}, 1000);
+else reject(new Error("Neteisingai nurodytas url"));
+console.log("Pasibaige uzklausa i serveri");
+})
+.then((atsakymas) => console.log(atsakymas))
+catch((klaida) => console.log(klaida));
+
+//async funkcijos asinchronines sincronines funkcijos
+
+//sinchronine funkcija
+
+function callServerSync() {
+	console.log("Uzklausa i serveri prasidejo");
+	setTimeout(() => {
+		console.log("gauname atsakyma is serverio");
+	}, 1000);
+	console.log("Užklausa baigta");
+}
+	callServerSync();
+
+//asinchronine funkcija async
+
+async function callServerAsync() {
+	console.log("Uzklausa i serveri prasidejo");
+	await new Promise((resolve, reject) =>
+		setTimeout(() => {
+			console.log("gauname atsakyma is serverio");
+			resolve(); ///promisas turi grainti arba resolvearba error nes tesis amzinai
+		}, 1000)
+	);
+	console.log("Užklausa baigta");
+	return "atsakymas1";
+	};
+
+	callServerAsync().then((atsakymas) => console.log(atsakymas));

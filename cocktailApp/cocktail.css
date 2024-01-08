@@ -118,10 +118,14 @@ button:active {
 p {
   margin: 0;
 }
+.modal-title {
+  text-align: center;
+}
 .row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
+  margin-left: 30px;
 }
 .row p {
   width: 80%;
@@ -134,9 +138,10 @@ p {
   flex-direction: column;
   justify-content: space-between;
 }
-.ingredient span {
+span {
   width: 50%;
-  text-align: left;
+  align-items: center;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 778px) {

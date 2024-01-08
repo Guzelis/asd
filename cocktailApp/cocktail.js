@@ -8,12 +8,12 @@ const dynamicDrinksElement = document.querySelector(".container-main");
 const resetButton = document.querySelector("#reset");
 const modal = document.querySelector(".modal-bg");
 const closeModalButton = document.querySelector(".modal-close-button");
-document.querySelector(".modal-img");
 const modalTitle = document.querySelector(".modal-title");
 const modalCategory = document.querySelector("#modal-category");
 const modalAlco = document.querySelector("#modal-alco");
 const modalGlassType = document.querySelector("#modal-glass-type");
 const modalIngredients = document.querySelector("#modal-ingredients");
+const modalIngredient = document.querySelector(".ingredient");
 const modalRecipe = document.querySelector("#modal-recipe");
 
 const categoriesArray = [];
@@ -252,17 +252,11 @@ async function initialization() {
   await getAllDrinks(); /// getting all drinks
   generateDrinksHTML(drinksArray); ///HTML
   searchButton.onclick = filter;
-  resetButton.onclick = reset;
+
   closeModalButton.onclick = closeModal;
   luckyButton.onclick = openModalRandom;
 }
 
-function reset() {
-  categorySelectElement.value = "";
-  glassTypeSelectElement.value = "";
-  ingredientsSelectElement.value = "";
-  coctailNameFilterElement.value = "";
-}
 async function openModalRandom(event) {
   event.preventDefault();
   modal.style.display = "flex";
@@ -289,7 +283,7 @@ async function openModal(id) {
 
   const response = await promise.json();
   const drink = response.drinks[0];
-  console.log(drink);
+
   document.querySelector(".modal-img").src = drink.strDrinkThumb;
   modalTitle.innerHTML = drink.strDrink;
   modalCategory.innerHTML = drink.strCategory;
@@ -297,14 +291,22 @@ async function openModal(id) {
   modalGlassType.innerHTML = drink.strGlass;
   modalRecipe.innerHTML = drink.strInstructions;
 
+  let dynamicHTML = ``;
+  const ingredients = [];
+
   for (let i = 1; i < 16; i++) {
-    const ingredients = [];
     const ingr = drink[`strIngredient${i}`];
     const meas = drink[`strMeasure${i}`];
-    if (drink[ingr && meas]) {
+    console.log(drink);
+    ///console.log(ingr);
+    //console.log(meas);
+    console.log(ingredients);
+    if (ingr && meas) {
       ingredients.push(`${ingr}: ${meas}`);
+      dynamicHTML += `<p><b>${ingr}</b>: <span>${meas}</span></p>`;
     } else break;
   }
+  modalIngredients.innerHTML = dynamicHTML;
 }
 
 function closeModal() {

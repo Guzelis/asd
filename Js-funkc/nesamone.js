@@ -494,6 +494,7 @@ for (let property in dog) {
 
 /// ...args neribotas kiekis elementu/argumentu	... spread operatorius
 // funkcija kaip gauti maximalia reiksme
+const args = [1, 2, 3]
 function findMaximumValue (...args) {
 	let max = args[0]; // pirmas elementas
 	for (let index in args) {
@@ -603,7 +604,7 @@ try {
 	console.log(error);
 }
 
-//promisas pazadas
+//promisas pazadas fetch
 
 new Promise((resolve, reject) => { // resolvas yra .then rejectas yra .catch
 	
@@ -669,3 +670,150 @@ async function callServerAsync() {
 	};
 
 	callServerAsync().then((atsakymas) => console.log(atsakymas));
+
+
+
+
+           ///const allUrls1 = [
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka",
+		// 	],
+		// 	allUrls2 = [
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Scotch",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Triple_sec",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Applejack",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka",
+		// 	],
+		// 	allUrls3 = [
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Scotch",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Triple_sec",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Applejack",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Brandy",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Lemon_vodka",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Champagne",
+		// 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Sherry",
+		// 	];
+	//new date timestamp paskaiciuoti kiek laiko trunka kreipimasis i serva ir atgal 
+//fetch sync async skirtumas nereik rasyt .then
+	function fetchData() {
+const startTime = new Date();
+fetch(allUrls2[0])
+.then((response) => response.json())
+.then((response) => {
+console.log(response);       ///{} skliaustai naudojami jei nori tureti daugiau elementu
+const endTime = new Date();
+const duration = endTime.getTime() - startTime.getTime();
+})};
+
+//fetch sync async skirtumas nereik rasyt .then
+
+async function fetchDataAsync() {
+const startTime = new Date(); // 1796521651
+const request = await fetch(allUrls2[1]);
+const drinks = await request.json();
+const endTime = new Date();
+const duration = endTime.getTime() - startTime.getTime();
+console.log("async - " + duration + "ms");
+console.log(drinks)};
+
+//fetch sync async skirtumas nereik rasyt .then
+
+async function fetchAllDataByIngredient(urls) {
+const startTime = new Date();
+const array = [];
+for (const url of urls) {
+const promise = await fetch(url);
+const answer = await promise.json();}}
+
+
+//kreipimasis i daug URL vienu metu
+
+async function fetchAllDataByIngredient(urls) {
+const startTime = new Date();
+const array = [];
+for (const url of urls) {
+const promise = await fetch(url);
+const answer = await promise.json();
+array.push(answer);
+}
+const endTime = new Date();
+const duration = endTime.getTime() - startTime.getTime();
+console.log("async one by one - " + duration + "ms");
+}
+
+fetchAllDataByIngredient(allUrls3); /// ka ivedi i skliasutus ta ir turi jei arrejus is daug url visi atvaizduojami paeiliui
+	
+
+async function fetchAllDataIngredient(urls) {
+const startTime = new Date();
+const promises = urls.map((url) =>
+fetch(url).then((response) => response.json())
+);
+const dataFromAllSources = await Promise.all(promises);
+console.log(dataFromAllSources);
+const endTime = new Date();
+const duration = endTime.getTime() - startTime.getTime();
+console.log("async all at the same time - " + duration + "ms");
+}
+fetchAllDataIngredient(allUrls3);
+
+
+//Masyvo destrukturavimas:
+
+const array1 = [1, 2, 3, 4];
+const array2 = [...array1]; // arejaus kopinimas
+
+console.log(array2);
+array.push(5);
+console.log(array1);
+console.log(array2);
+
+const [pirmas, , trecias] = array1;
+
+console.log(pirmas);
+console.log(antras);
+console.log(trecias);
+
+//Masyvo destrukturavimas:
+const [, antras, , , penktas] = array1; /// kableliai praleidiz elementa arejuj
+console.log(antras);
+console.log(penktas);
+onsole.log(array);
+
+// //objekto destrukturavimas:
+const obj = {
+id: 4,
+name: "John",
+surname: "Doe",
+age: 27,
+married: false,
+};
+
+const { name, surname, married, id } = obj;
+
+console.log(name, surname, married, id);
+
+// //MAP:
+
+const array = [1, 2, 3, 4, 5];
+
+const mappedArray = array.map((value) => value / 2); // visu reiksmiu arejuj padalinimas is 2
+console.log(mappedArray);
+console.log(array);
+
+// //FILTER:
+
+const filteredArray = array.filter((value) => value > 3); // gauna visas reiksmes didesnes nei 3(4, 5)
+console.log(filteredArray);
+
+// //SOME:
+
+const isThereAWantedValue = array.some((value) => value(value.id) === 7);  // tikrina r arejui yra 7 jei value.id tikrina objekte
+console.log(isThereAWantedValue);
+
+//arrayjaus supusinimasi kita areju
+
+const arr = [1, 2, 3];
+const arr2 = [4, 5, 6];
+ arr.push(...arr2);

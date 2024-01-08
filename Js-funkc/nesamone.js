@@ -817,3 +817,30 @@ console.log(isThereAWantedValue);
 const arr = [1, 2, 3];
 const arr2 = [4, 5, 6];
  arr.push(...arr2);
+
+
+ /// nurodyri faila modulio importavimas
+ //kai vienas vaile susikuri daugiau js failu ir keli i pagrindini faila
+
+ const sum = require("./math-module") //math-module failo pavadinimas sum funkcijos pavadinimas
+
+ //exportavimas
+//cia irasyti tam faile kuri pajemi i pagrindini faila
+ module.exports = sum
+
+ //daugiau funkcij importavimas
+
+const sum = require("./math-module").sum;
+const atimti = require("./math-module").subtract;
+
+/// exportavimas
+
+module.exports = {sum: sum, subtract: subtarct};
+
+//serverio sukurimas
+
+const http = require(`http`);
+const server = http.createServer((req, res) => {
+
+});
+server.listen(3000);

@@ -1,5 +1,6 @@
 const people = [];
 let currentNumeration = 0;
+const possibleNationalities = ["Lithuanian", "Latvian", "German"];
 //const btn = document.querySelector("#btn");
 
 btn.addEventListener("click", function () {
@@ -27,6 +28,10 @@ btn.addEventListener("click", function () {
     return isValid;
   }
 
+  function isValidNationality(nationality) {
+    return possibleNationalities.includes(nationality);
+  }
+
   function validateAge(age) {
     let isValid = true;
 
@@ -47,10 +52,12 @@ btn.addEventListener("click", function () {
 
   // ar ivestos reiksmes yra tuscios
   if (
+    !validateName(person.firstName) ||
     !validateName(person.lastName) ||
     !validateAge(person.age) ||
-    !person.nationality
+    !isValidNationality(person.nationality)
   ) {
+    alert("Prašome užpildyti visus laukus");
     return;
   }
 

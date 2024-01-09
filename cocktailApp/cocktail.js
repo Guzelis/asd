@@ -15,6 +15,8 @@ const modalGlassType = document.querySelector("#modal-glass-type");
 const modalIngredients = document.querySelector("#modal-ingredients");
 const modalIngredient = document.querySelector(".ingredient");
 const modalRecipe = document.querySelector("#modal-recipe");
+const letterFilter = document.querySelector(".letters");
+const letter = document.querySelector(".letters > a");
 
 const categoriesArray = [];
 const glassArray = [];
@@ -175,7 +177,7 @@ async function getAllDrinks() {
 function generateDrinksHTML(drinks) {
   let dynamicHTML = ``;
   for (let drink of drinks) {
-    dynamicHTML += `<div class="drink" onclick="openModal(${drink.idDrink})">
+    dynamicHTML += `<div class="drink" onclick="openModal(event, ${drink.idDrink})">
       <img src="${drink.strDrinkThumb}" alt="drink" />
       <h2 class="title">${drink.strDrink}</h2>
     </div>`;
@@ -243,7 +245,7 @@ async function filter(event) {
       )
     );
   }
-  coctailNameFilterElement.value = "";
+
   generateDrinksHTML(filteredArray);
 }
 
@@ -251,10 +253,10 @@ async function initialization() {
   await fillSelectElements(); ///select filling
   await getAllDrinks(); /// getting all drinks
   generateDrinksHTML(drinksArray); ///HTML
-  searchButton.onclick = filter;
-
-  closeModalButton.onclick = closeModal;
-  luckyButton.onclick = openModalRandom;
+  generateLettersHTML();
+  // letter.onclick = async function (event) {
+  //   await filterByLetter(event);
+  // };
 }
 
 async function openModalRandom(event) {
@@ -264,7 +266,7 @@ async function openModalRandom(event) {
     `https://www.thecocktaildb.com/api/json/v1/1/random.php`
   );
   const response = await promise.json();
-  console.log(response);
+
   const drink = response.drinks[0];
   console.log(drink);
   document.querySelector(".modal-img").src = drink.strDrinkThumb;
@@ -275,7 +277,8 @@ async function openModalRandom(event) {
   modalRecipe.innerHTML = drink.strInstructions;
 }
 
-async function openModal(id) {
+async function openModal(event, id) {
+  event.preventDefault();
   modal.style.display = "flex";
   const promise = await fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
@@ -292,26 +295,70 @@ async function openModal(id) {
   modalRecipe.innerHTML = drink.strInstructions;
 
   let dynamicHTML = ``;
-  const ingredients = [];
-
   for (let i = 1; i < 16; i++) {
     const ingr = drink[`strIngredient${i}`];
     const meas = drink[`strMeasure${i}`];
-    console.log(drink);
-    ///console.log(ingr);
-    //console.log(meas);
-    console.log(ingredients);
+
     if (ingr && meas) {
-      ingredients.push(`${ingr}: ${meas}`);
       dynamicHTML += `<p><b>${ingr}</b>: <span>${meas}</span></p>`;
     } else break;
   }
   modalIngredients.innerHTML = dynamicHTML;
+  modalAlco.onclick = async function () {
+    await filterByAlcohol(drink.strAlcoholic);
+  };
+}
+
+async function filterByAlcohol(strAlcoholic) {
+  closeModal();
+  const filterAlco = strAlcoholic.replaceAll(" ", "_");
+  const promise = await fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${filterAlco}`
+  );
+  const answer = await promise.json();
+  generateDrinksHTML(answer.drinks);
+}
+
+function generateLettersHTML() {
+  const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+  const alphabet = alpha.map((x) => String.fromCharCode(x));
+  let dynamicHTML = ``;
+  for (let letter of alphabet) {
+    dynamicHTML += `<a href="#">${letter}</a>`;
+  }
+  letterFilter.innerHTML = dynamicHTML;
+
+  const letterLinks = document.querySelectorAll(".letters > a");
+  letterLinks.forEach((link) => {
+    link.addEventListener("click", async (event) => {
+      event.preventDefault();
+      await filterByLetter(event);
+    });
+  });
+}
+
+async function filterByLetter(event) {
+  event.preventDefault();
+  const letter = event.target.innerHTML.toLowerCase();
+  console.log(letter);
+
+  const promise = await fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`
+  ).catch((error) => console.log(error));
+  const answer = await promise.json();
+  console.log(answer);
+  generateDrinksHTML(answer.drinks);
 }
 
 function closeModal() {
   modal.style.display = "none";
 }
+
+window.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    modal.style.display = "none";
+  }
+});
 
 window.onclick = function (event) {
   if (event.target === modal) {
@@ -319,4 +366,15 @@ window.onclick = function (event) {
   }
 };
 
+function reset() {
+  document.querySelector("#category").value = "";
+  document.querySelector("#glass-type").value = "";
+  document.querySelector("#ingredients").value = "";
+  document.querySelector("#filter").value = "";
+}
+
+searchButton.onclick = filter;
+closeModalButton.onclick = closeModal;
+luckyButton.onclick = openModalRandom;
+resetButton.onclick = reset;
 initialization();

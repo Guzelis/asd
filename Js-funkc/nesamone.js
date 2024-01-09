@@ -169,6 +169,12 @@ console.log(skaiciukas);
 //sugeneruojama raidė pagal unikodą
 console.log(String.fromCharCode(skaiciukas));
 
+//index suradimas find index
+
+let elementIndex = products.findIndex((value) => value.id === id);
+  const product = products[elementIndex];
+
+
 
 //HTML elemnto nuskenavimas
 let paragrafas = document.querySelector(".isskirtinis-paragrafas");
@@ -473,6 +479,12 @@ const greetingText = `Hello, my name is ${person.firstName} ${
 } and my kids are ${person.kids.join(", ")}. And I am ${
 	person.isMarried ? "Married" true : "Not married" false  // cia true arba false reiksmes
 }`;
+   
+///if else :?
+
+?- if
+:-else
+
 
 //Dinaminis savybiu paemimas:
 
@@ -794,7 +806,7 @@ const { name, surname, married, id } = obj;
 
 console.log(name, surname, married, id);
 
-// //MAP:
+// //map:
 
 const array = [1, 2, 3, 4, 5];
 
@@ -802,12 +814,12 @@ const mappedArray = array.map((value) => value / 2); // visu reiksmiu arejuj pad
 console.log(mappedArray);
 console.log(array);
 
-// //FILTER:
+// //filter
 
 const filteredArray = array.filter((value) => value > 3); // gauna visas reiksmes didesnes nei 3(4, 5)
 console.log(filteredArray);
 
-// //SOME:
+// //some
 
 const isThereAWantedValue = array.some((value) => value(value.id) === 7);  // tikrina r arejui yra 7 jei value.id tikrina objekte
 console.log(isThereAWantedValue);
@@ -844,3 +856,68 @@ const server = http.createServer((req, res) => {
 
 });
 server.listen(3000);
+
+
+//events
+//input reiksmiu gavimas
+const names = ["Justinas", "Asta", "Rasa", "Jonas", "Antanas"];
+const nameInputElement = document.querySelector("#name");
+
+nameInputElement.addEventListener("keyup", (event) => {
+	// 1. budas kaip gauti inputo reiksme
+	// const inputValue = event.target.value;
+	// 2. budas..
+	const inputValue = nameInputElement.value;})
+
+//atvaizdavimas html
+	function showValues(list) {
+		let dynamicHTML = "";
+		for (const name of list) {
+			dynamicHTML += `<li>${name}</li>`;
+		}
+		document.querySelector("#list").innerHTML = dynamicHTML;
+	}
+//filtravimas
+
+const filteredArray = names.filter((value) =>
+	value.toLowerCase().includes(inputValue.toLowerCase()));
+
+showValues(filteredArray);
+console.log(filteredArray);
+			
+
+// objekto pavertimas i stringa
+
+objektas = json.stringify({})
+
+
+// Norint išsaugoti elementus localStorage:
+//1 budas:
+localStorage.vardas = "Jonas";
+localStorage.pavarde = "Nainys";
+
+//2 budas:
+localStorage.setItem("vardas2", "Antanas");
+localStorage.setItem("pavarde2", "Stanionis");
+
+//Norint gauti elementus iš localStorage:
+//1 budas:
+let vardas = localStorage.vardas,
+	pavarde = localStorage.pavarde;
+//2 budas:
+let vardas2 = localStorage.getItem("vardas2"),
+	pavarde2 = localStorage.getItem("pavarde2");
+
+//localStorage yra saugomi tik string elementai
+// jei norime saugoti ne string elementus:
+
+let arrayOfObjects = [
+	{ id: 1, name: vardas, surname: pavarde },
+	{ id: 2, name: vardas2, surname: pavarde2 },
+];
+// issaugojimas:
+localStorage.setItem("Objektai", JSON.stringify(arrayOfObjects));
+
+//gavimas:
+const arrayFromStorage = JSON.parse(localStorage.getItem("Objektai"));
+console.log(arrayFromStorage);

@@ -921,3 +921,8 @@ localStorage.setItem("Objektai", JSON.stringify(arrayOfObjects));
 //gavimas:
 const arrayFromStorage = JSON.parse(localStorage.getItem("Objektai"));
 console.log(arrayFromStorage);
+
+
+JSON.stringify() /// pavercia objektini kintamaji i string
+
+JSON.parse() /// pavercia string kintamaji i objekta

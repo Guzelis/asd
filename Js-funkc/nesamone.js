@@ -926,3 +926,22 @@ console.log(arrayFromStorage);
 JSON.stringify() /// pavercia objektini kintamaji i string
 
 JSON.parse() /// pavercia string kintamaji i objekta
+
+//Sis budas - suveikia
+generateTableContent()
+function generateTableContent()
+{
+
+}
+
+//Sitas budas - nesuveikia
+
+getTableContents()
+const getTableContents = ()=>{
+
+}
+
+//Automatinis funkcijos iškvietimas apskliaudus funkciją ir už jos padėjus skliaustelius
+(()=>{
+console.log('funkcija')
+})()

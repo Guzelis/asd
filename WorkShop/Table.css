@@ -17,23 +17,31 @@ td {
   text-align: center;
 }
 .in-form,
-.subt-form {
+.subt-form,
+.update {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 .add-form,
-.out-form {
+.out-form,
+.update-form {
   width: 18%;
   margin-top: 50px;
   margin-left: 20px;
 }
+
+label {
+  margin-top: 5px;
+}
 .in-form input,
-.subt-form input {
+.subt-form input,
+.update input {
   outline: none;
   padding: 5px 0px 5px 15px;
 }
-button {
+button,
+.update-button {
   margin-left: 100px;
   width: 80px;
   height: 30px;
@@ -44,11 +52,19 @@ button {
 }
 .forms {
   display: flex;
-  gap: 400px;
+  gap: 200px;
 }
 button:hover {
   background-color: blue;
 }
 button:active {
+  transform: translateY(4px);
+}
+
+.update-button:hover {
+  background-color: blue;
+}
+
+.update-button:active {
   transform: translateY(4px);
 }

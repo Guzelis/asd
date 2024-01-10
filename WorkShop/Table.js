@@ -1,54 +1,27 @@
-const people = [];
-let currentNumeration = 0;
+if (!localStorage.getItem("people")) {
+  localStorage.setItem("people", JSON.stringify([])); //JSON.stringify([])
+}
+
+const people = JSON.parse(localStorage.getItem("people"));
+generateTableContent(people);
+
+if (!localStorage.getItem("currentNumeration")) {
+  localStorage.setItem("currentNumeration", 1); //JSON.stringify([])
+}
+
+let currentNumeration = +localStorage.getItem("currentNumeration");
+
 const possibleNationalities = ["Lithuanian", "Latvian", "German"];
 //const btn = document.querySelector("#btn");
 
 btn.addEventListener("click", function () {
   const person = {};
 
-  currentNumeration++;
   person.firstName = document.querySelector("#name").value;
   person.lastName = document.querySelector("#last").value;
   person.age = +document.querySelector("#age").value;
   person.nationality = document.querySelector("#nation").value;
   person.number = currentNumeration;
-
-  function validateName(name) {
-    let isValid = true;
-
-    if (!name) {
-      isValid = false;
-    }
-    if (/[0-9]/.test(name)) {
-      isValid = false;
-    }
-    if (/[~!@#$%^&*[]()_-=?,.<>]/.test(name)) {
-      isValid = false;
-    }
-    return isValid;
-  }
-
-  function isValidNationality(nationality) {
-    return possibleNationalities.includes(nationality);
-  }
-
-  function validateAge(age) {
-    let isValid = true;
-
-    if (!age) {
-      isValid = false;
-    }
-    if (isNaN(parseInt(age))) {
-      isValid = false;
-    }
-    if (age < 0 || age > 200) {
-      isValid = false;
-    }
-    if (age % 1 !== 0) {
-      isValid = false;
-    }
-    return isValid;
-  }
 
   // ar ivestos reiksmes yra tuscios
   if (
@@ -66,8 +39,49 @@ btn.addEventListener("click", function () {
   document.querySelector("#age").value = "";
   document.querySelector("#nation").value = "";
   people.push(person);
+  currentNumeration++;
+  localStorage.setItem("currentNumeration", "" + currentNumeration);
+
+  localStorage.setItem("people", JSON.stringify(people));
   generateTableContent(people);
 });
+
+function isValidNationality(nationality) {
+  return possibleNationalities.includes(nationality);
+}
+
+function validateAge(age) {
+  let isValid = true;
+
+  if (!age) {
+    isValid = false;
+  }
+  if (isNaN(parseInt(age))) {
+    isValid = false;
+  }
+  if (age < 0 || age > 200) {
+    isValid = false;
+  }
+  if (age % 1 !== 0) {
+    isValid = false;
+  }
+  return isValid;
+}
+
+function validateName(name) {
+  let isValid = true;
+
+  if (!name) {
+    isValid = false;
+  }
+  if (/[0-9]/.test(name)) {
+    isValid = false;
+  }
+  if (/[~!@#$%^&*[]()_-=?,.<>]/.test(name)) {
+    isValid = false;
+  }
+  return isValid;
+}
 
 function generateTableContent(people) {
   let dynamicHTML = ``;
@@ -94,10 +108,55 @@ ntb.addEventListener("click", function () {
   } else {
     people.splice(index, 1);
     generateTableContent(people);
+    localStorage.setItem("people", JSON.stringify(people));
   }
   document.querySelector("#number").value = "";
 });
 
+// update
+const updateName = document.querySelector("#name-update");
+const updateLastname = document.querySelector("#last-update");
+const updateAge = document.querySelector("#age-update");
+const updateNationality = document.querySelector("#nation-update");
+
+const updateID = document.querySelector("#id");
+const idButton = document.querySelector(`[value="Update"]`);
+
+idButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  const foundIndex = people.findIndex((val) => val.number === +updateID.value);
+
+  if (foundIndex === -1) {
+    alert("neegzisstuoja");
+    return;
+  }
+
+  const person = people[foundIndex];
+
+  if (
+    !validateName(updateName.value) ||
+    !validateName(updateLastname.value) ||
+    !validateAge(updateAge.value) ||
+    !isValidNationality(updateNationality.value)
+  ) {
+    alert("uzpildikite laukus teisingai");
+    return;
+  }
+  people[foundIndex] = {
+    number: person.number,
+    firstName: updateName.value,
+    lastName: updateLastname.value,
+    age: updateAge.value,
+    nationality: updateNationality.value,
+  };
+  generateTableContent(people);
+
+  updateName.value = "";
+  updateLastname.value = "";
+  updateAge.value = "";
+  updateNationality.value = "";
+  localStorage.setItem("people", JSON.stringify(people));
+});
 /*
 ntb.addEventListener("click", function () {
   const number = document.querySelector("#number").value;

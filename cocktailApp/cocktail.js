@@ -121,6 +121,7 @@ async function fillSelectElements() {
     (categoryObj) => categoryObj.strCategory
   );
   selectValues.glasses = allGlasses.drinks.map((glassObj) => glassObj.strGlass);
+
   selectValues.ingredients = allIngredients.drinks.map(
     (ingredientsObj) => ingredientsObj.strIngredient1
   );
@@ -177,7 +178,7 @@ async function getAllDrinks() {
 function generateDrinksHTML(drinks) {
   let dynamicHTML = ``;
   for (let drink of drinks) {
-    dynamicHTML += `<div class="drink" onclick="openModal(event, ${drink.idDrink})">
+    dynamicHTML += `<div class="drink" onclick="openModal(false, event, ${drink.idDrink})">
       <img src="${drink.strDrinkThumb}" alt="drink" />
       <h2 class="title">${drink.strDrink}</h2>
     </div>`;
@@ -201,6 +202,7 @@ async function filter(event) {
   }
 
   if (category !== "Select cocktail category") {
+    localStorage.setItem("category", category);
     const promise = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category.replaceAll(
         " ",
@@ -216,6 +218,10 @@ async function filter(event) {
   }
 
   if (glassType !== "Select glass type") {
+    localStorage.setItem("glass", glassType);
+    localStorage.getItem("glass");
+    generateDrinksHTML(drinksArray);
+
     const promise = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${glassType.replaceAll(
         " ",
@@ -231,6 +237,7 @@ async function filter(event) {
   }
 
   if (ingredient !== "Select ingredient") {
+    localStorage.setItem("ingredient", ingredient);
     const promise = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient.replaceAll(
         " ",
@@ -254,35 +261,40 @@ async function initialization() {
   await getAllDrinks(); /// getting all drinks
   generateDrinksHTML(drinksArray); ///HTML
   generateLettersHTML();
-  // letter.onclick = async function (event) {
-  //   await filterByLetter(event);
-  // };
+  localStorage.getItem("glass");
 }
 
-async function openModalRandom(event) {
+// async function openModalRandom(event) {
+//   event.preventDefault();
+//   modal.style.display = "flex";
+//   const promise = await fetch(
+//     `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+//   );
+//   const response = await promise.json();
+
+//   const drink = response.drinks[0];
+//   console.log(drink);
+//   document.querySelector(".modal-img").src = drink.strDrinkThumb;
+//   modalTitle.innerHTML = drink.strDrink;
+//   modalCategory.innerHTML = drink.strCategory;
+//   modalAlco.innerHTML = drink.strAlcoholic;
+//   modalGlassType.innerHTML = drink.strGlass;
+//   modalRecipe.innerHTML = drink.strInstructions;
+// }
+
+async function openModal(isRandom, event, id) {
   event.preventDefault();
   modal.style.display = "flex";
-  const promise = await fetch(
-    `https://www.thecocktaildb.com/api/json/v1/1/random.php`
-  );
-  const response = await promise.json();
-
-  const drink = response.drinks[0];
-  console.log(drink);
-  document.querySelector(".modal-img").src = drink.strDrinkThumb;
-  modalTitle.innerHTML = drink.strDrink;
-  modalCategory.innerHTML = drink.strCategory;
-  modalAlco.innerHTML = drink.strAlcoholic;
-  modalGlassType.innerHTML = drink.strGlass;
-  modalRecipe.innerHTML = drink.strInstructions;
-}
-
-async function openModal(event, id) {
-  event.preventDefault();
-  modal.style.display = "flex";
-  const promise = await fetch(
-    `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
-  );
+  let promise;
+  if (!isRandom) {
+    promise = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+    );
+  } else {
+    promise = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+    );
+  }
 
   const response = await promise.json();
   const drink = response.drinks[0];
@@ -324,29 +336,26 @@ function generateLettersHTML() {
   const alphabet = alpha.map((x) => String.fromCharCode(x));
   let dynamicHTML = ``;
   for (let letter of alphabet) {
-    dynamicHTML += `<a href="#">${letter}</a>`;
+    dynamicHTML += `<a href="#" onclick="filterByLetter(event)">${letter}</a>`;
   }
   letterFilter.innerHTML = dynamicHTML;
 
-  const letterLinks = document.querySelectorAll(".letters > a");
-  letterLinks.forEach((link) => {
-    link.addEventListener("click", async (event) => {
-      event.preventDefault();
-      await filterByLetter(event);
-    });
-  });
+  // // const letterLinks = document.querySelectorAll(".letters > a");
+  // // letterLinks.forEach((link) => {
+  // //   link.addEventListener("click", async (event) => {
+  // //     event.preventDefault();
+  // //     await filterByLetter(event);
+  // //   });
+  // });
 }
 
 async function filterByLetter(event) {
   event.preventDefault();
   const letter = event.target.innerHTML.toLowerCase();
-  console.log(letter);
-
   const promise = await fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`
   ).catch((error) => console.log(error));
   const answer = await promise.json();
-  console.log(answer);
   generateDrinksHTML(answer.drinks);
 }
 
@@ -367,14 +376,17 @@ window.onclick = function (event) {
 };
 
 function reset() {
-  document.querySelector("#category").value = "";
-  document.querySelector("#glass-type").value = "";
-  document.querySelector("#ingredients").value = "";
+  document.querySelector("#category").selectedIndex = 0;
+  document.querySelector("#glass-type").selectedIndex = 0;
+  document.querySelector("#ingredients").selectedIndex = 0;
   document.querySelector("#filter").value = "";
+  location.reload();
+  return false;
 }
 
 searchButton.onclick = filter;
 closeModalButton.onclick = closeModal;
-luckyButton.onclick = openModalRandom;
+luckyButton.onclick = (event) => openModal(true, event);
 resetButton.onclick = reset;
+
 initialization();

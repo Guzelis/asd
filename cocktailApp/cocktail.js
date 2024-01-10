@@ -218,8 +218,7 @@ async function filter(event) {
   }
 
   if (glassType !== "Select glass type") {
-    localStorage.setItem("glass", glassType);
-    localStorage.getItem("glass");
+    localStorage.setItem("glassType", glassType);
     generateDrinksHTML(drinksArray);
 
     const promise = await fetch(
@@ -261,7 +260,20 @@ async function initialization() {
   await getAllDrinks(); /// getting all drinks
   generateDrinksHTML(drinksArray); ///HTML
   generateLettersHTML();
-  localStorage.getItem("glass");
+  if (localStorage.getItem("category")) {
+    let category = localStorage.getItem("category");
+    categorySelectElement.value = category;
+  }
+
+  if (localStorage.getItem("ingredient")) {
+    let ingredient = localStorage.getItem("ingredient");
+    ingredientsSelectElement.value = ingredient;
+  }
+
+  if (localStorage.getItem("glassType")) {
+    let glassType = localStorage.getItem("glassType");
+    glassTypeSelectElement.value = glassType;
+  }
 }
 
 // async function openModalRandom(event) {
@@ -380,6 +392,7 @@ function reset() {
   document.querySelector("#glass-type").selectedIndex = 0;
   document.querySelector("#ingredients").selectedIndex = 0;
   document.querySelector("#filter").value = "";
+  localStorage.clear();
   location.reload();
   return false;
 }

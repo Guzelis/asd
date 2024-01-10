@@ -53,6 +53,47 @@
               <option>home-decoration</option>
             </select>
           </div>
+          <div class="col-4 mt-4">
+            <label for="img-url">Nuotrauka</label>
+            <input
+              name="img-url"
+              type="text"
+              id="img-url"
+              class="form-control"
+            />
+          </div>
+          <div class="col-4 mt-4">
+            <label for="discount">Nuolaida</label>
+            <input
+              name="discount"
+              min="0"
+              max="100"
+              value="0"
+              type="number"
+              id="discount"
+              class="form-control"
+            />
+          </div>
+          <div class="col-4 mt-4">
+            <label for="rating">Ivertinimas</label>
+            <input
+              name="rating"
+              min="0"
+              max="5"
+              value="0"
+              type="number"
+              id="rating"
+              class="form-control"
+            />
+          </div>
+          <div class="col-4 mt-4">
+            <label for="description">Aprasymas</label>
+            <textarea
+              name="description"
+              id="description"
+              class="form-control"
+            ></textarea>
+          </div>
           <div class="col-4">
             <button class="btn btn-primary mt-5" id="Submit">Submit</button>
           </div>
@@ -73,10 +114,38 @@
         </thead>
         <tbody id="dynamic-data"></tbody>
       </table>
+
+      <dialog style="width: 70%" id="productInfo">
+        <div style="max-width: 70%; margin: 0 auto">
+          <img
+            src="https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+            alt="product"
+          />
+          <div class="product-details">
+            <div class="row">
+              <span class="col-5 fw-bold">Nuolaida:</span>
+              <span class="col-1">-10555%</span>
+            </div>
+            <div class="row">
+              <span class="col-5 fw-bold">Ivertinimas:</span>
+              <span class="col-1">44444</span>
+            </div>
+            <div class="row">
+              <span class="col-5 fw-bold">Aprasymas:</span>
+              <span class="col-7"
+                >Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Maiores illum perferendis autem accusamus labore nihil id, nam
+                minus optio earum? Deleniti dolores perspiciatis fugiat totam.
+                Inventore, earum. Itaque, repellat cumque!</span
+              >
+            </div>
+          </div>
+        </div>
+      </dialog>
     </div>
+
     <div class="container"></div>
-    <script src="products.js"></script>
+
     <script src="product-funcion.js"></script>
-    <script src="products-HTML.js"></script>
   </body>
 </html>

@@ -4,8 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="todos.css" />
   </head>
   <body>
-    <script src="2024-01-09.js"></script>
+    <div class="container">
+      <h3>Todos</h3>
+      <hr />
+
+      <div class="lists d-flex justify-content-between">
+        <div class="todo-list d-flex flex-column justify-content-between">
+          <div class="all-todos dropzone">
+            <div
+              class="todo d-flex justify-content-between draggable"
+              todo-id="1"
+              draggable="true"
+            >
+              <input type="checkbox" name="todo" />
+              <span class="todo-text">Apsitriesti nugaryte</span>
+              <div class="dropdown">
+                <i
+                  class="bi bi-three-dots data-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                ></i>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item todo-move" todomove="1" href="#"
+                      >Done</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item todo-delete" tododelete="1" href="#"
+                      >Delete</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item todo-update" todoupdate="1" href="#"
+                      >Update</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-1">
+            <input type="text" class="form-control" />
+            <button class="btn btn-primary" type="button">Add</button>
+          </div>
+        </div>
+        <div class="actions d-flex flex-column justify-content-center gap-3">
+          <i class="bi bi-arrow-right-square" id="to-done"></i>
+          <i class="bi bi-arrow-left-square" id="to-todo"></i>
+          <i class="bi bi-trash" id="delete"></i>
+        </div>
+        <div class="done-list dropzone"></div>
+      </div>
+    </div>
+
+    <script src="drag-drop.js"></script>
+    <script src="three-dots-action.js"></script>
+    <script src="middle-buttons.js"></script>
   </body>
 </html>

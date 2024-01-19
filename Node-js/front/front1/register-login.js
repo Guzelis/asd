@@ -13,7 +13,8 @@ async function register() {
       password: password.value,
     }),
   });
-  const response = await promise.json();
+  const response = await promise.text();
+  console.log(response);
 }
 registerButton.onclick = register;
 
@@ -22,16 +23,20 @@ const loginPassword = document.querySelector("#login-password");
 const loginButton = document.querySelector("#login-button");
 
 async function login() {
-  const promise = await fetch("http://localhost:3000/login", {
+  fetch("http://localhost:3000/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       username: loginUsername.value,
       password: loginPassword.value,
     }),
-  });
+  })
+    .then((response) => response.json())
+    .then((response) => (window.location.href = response.url))
+    .catch((err) => console.log(err));
 
-  const response = await promise.json();
+  // window.location.href =
+  //   "http://127.0.0.1:5500/Node-js/front/front1/todos.html";
 }
 
 loginButton.onclick = login;

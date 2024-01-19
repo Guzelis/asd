@@ -34,15 +34,19 @@ server.get("/", (req, res) => {
 });
 
 server.post("/register", (req, res) => {
-  const username = req.body.username;
-  const email = req.body.email;
-  const password = req.body.password;
-  users.push({
-    id: users.length + 1,
-    username: username,
-    email: email,
-    password: password,
-  });
+  try {
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    users.push({
+      id: users.length + 1,
+      username: username,
+      email: email,
+      password: password,
+    });
+  } catch (error) {
+    res.send("netinkami duomenys");
+  }
 });
 
 server.get("/users", (req, res) => {
@@ -70,26 +74,35 @@ server.post("/login", (req, res) => {
 
   if (!username)
     return res.status(400).json({ message: "tokio vartotojo nera" });
+  //return res.status(400).json({ message: "tokio vartotojo nera" });
 
   if (!password)
-    return res.status(400).json({ message: "prasome ivesti slaptazodi" });
+    return res.status(400).json({ message: "iveskite slaptazodi" });
+  //return res.status(400).json({ message: "prasome ivesti slaptazodi" });
 
   //2. Patikrinti, ar vartotojas su tokiu username egzistuoja,
-  const selectedUser = users.find((user) => user.username === username);
+  const selectedUser = users.find(
+    (user) => user.username.toLowerCase() === username.toLowerCase()
+  );
   if (!selectedUser)
-    return res.status(400).json({ message: "tokio vartotojo nera" });
+    return res.status(404).json({ message: "tokio vartotojo nera" });
+  //return res.status(400).json({ message: "tokio vartotojo nera" });
   //a. jei ne, tada siusti "Vartotojas neegzistuoja"
 
   //b. toliau daromas tikrinimas
   //3. Ar slaptazodis atitinka.
   if (selectedUser.password === password)
+    // res.status(200).json({ message: "prisijungete" });
+    //res.redirect("http://127.0.0.1:5500/Node-js/front/front1/todos.html");
     res.status(200).json({
-      url: "http://http://127.0.0.1:5500/Node-js/front/front1/todos.html",
+      url: "http://127.0.0.1:5500/Node-js/front/front1/todos.html",
     });
 
   //Jei atitinka - tada siunciame atsakyma is serverio.
   //"Sekmingai prisijungete prie sistemos"
 });
+
+///crudas todos
 
 server.post("/todos", (req, res) => {
   const { username, todo } = req.body;
@@ -99,12 +112,12 @@ server.post("/todos", (req, res) => {
   if (!todo) return res.status(400).json({ message: "blogas slaptazodis" });
 
   const selectedUser = users.find(
-    (user) => user.username.toLowerCase() === username
+    (user) => user.username.toLowerCase() === username.toLowerCase()
   );
   if (!selectedUser)
     return res.status(404).json({ message: "vartotojas nerastas" });
   const newTodo = { id: todos.length + 1, username, todo };
-  todos.push({ username, todo });
+  todos.push(newTodo);
 
   res.status(201).json({ message: "naujas todo buvo sukurtas", newTodo });
 });
@@ -113,22 +126,36 @@ server.get("/todos", (req, res) => {
   res.status(200).json(todos);
 });
 
-server.get("/todos:id", (req, res) => {});
+server.get("/todos:id", (req, res) => {
+  if (isNaN(+req.params.id)) {
+    res.send("ID netinkamas");
+  }
 
-server.put("/todos:id", (rew, res) => {
+  const selectedTodo = todos.find((todo) => todo.id === +req.params.id);
+
+  if (!selectedTodo) {
+    res.send("tokio todo nera");
+  } else {
+    res.send(selectedTodo);
+  }
+});
+
+server.put("/todos:id", (req, res) => {
   const id = +req.params.id;
-  if (isNaN(+id))
+  if (isNaN(id))
     return res.status(400).json({ message: "iveskite tinkama id" });
 
   const { username, todo } = req.body;
-  const existingUser = user.find(
-    (user) => user.username.toLowerCase() === username
+  const existingUser = users.find(
+    (user) => user.username.toLowerCase() === username.toLowerCase()
   );
   if (!existingUser)
     return res.status(400).json({ message: "toks vartotojas neegzistuoja" });
+
   const existingTodo = todos.findIndex((currentTodo) => currentTodo.id === id);
-  todos[existingTodo = {...todos[existingTodo], todo, username}]
+  todos[existingTodo] = { ...todos[existingTodo], todo, username };
 });
 
-server.listen(3000);
-console.log("serveris pasileido adresu : http://localhost:3000");
+server.listen(3000, () => {
+  console.log("Aplikacija pasileido, jos adresas: http://localhost:3000/");
+});

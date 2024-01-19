@@ -1,0 +1,87 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+h2 {
+  margin: 10px;
+}
+.container-main {
+  background-color: rgb(107, 94, 94);
+  width: 350px;
+  text-align: center;
+}
+
+.bill {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+
+.bill input {
+  text-align: center;
+}
+.service {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+
+.service select {
+  width: 170px;
+  text-align: center;
+}
+.tip {
+  margin-left: 16px;
+  height: 40px;
+  width: 90%;
+  margin-bottom: 10px;
+  align-items: center;
+  background-color: antiquewhite;
+  text-align: left;
+  padding-top: 17px;
+  padding-left: 5px;
+}
+
+.total {
+  margin-left: 16px;
+  width: 90%;
+  height: 40px;
+  align-items: center;
+  background-color: antiquewhite;
+  text-align: left;
+  margin-bottom: 10px;
+  padding-top: 17px;
+  padding-left: 5px;
+}
+#btn {
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+}
+.total p {
+  color: red;
+  margin: 0;
+}
+
+.tip p {
+  margin: 0;
+}

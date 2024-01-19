@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="tips.css" />
+  </head>
+  <body>
+    <section class="container">
+      <div class="container-main">
+        <h2>Tip calculator</h2>
+        <div class="main">
+          <div class="bill">
+            <label for="bill">Bill</label>
+            <input type="number" id="bill" />
+          </div>
+          <hr>
+          <div class="service">
+            <label for="service">Rate service</label>
+            <select name="" id="service">
+              <option value="0">0%</option>
+              <option value="5" selected>5%</option>
+              <option value="10">10%</option>
+              <option value="15">15%</option>
+            </select>
+            </div>
+            <hr>
+
+            <div class="button">
+              <button id="btn">Calculate</button>
+            </div>
+            <hr>
+            <div class="tip">
+              <p><b>Tip: <span id="tip"></span></b> </p>
+            </div>
+            <div class="total">
+              <p class="total-text"><b>Total: <span id="total"></span></b> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="tips.js"></script>
+  </body>
+</html>

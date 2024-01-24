@@ -1,22 +1,25 @@
 let dragElement;
 
-const allDragableElements = document.querySelectorAll(".draggable");
 const dropZones = document.querySelectorAll(".dropzone");
 
-for (const element of allDragableElements) {
-  element.addEventListener("dragstart", (event) => {
-    dragElement = event.target;
-  });
+function addDragFunctionalityToAllElements() {
+  const allDragableElements = document.querySelectorAll(".draggable");
+  for (const element of allDragableElements) {
+    element.addEventListener("dragstart", (event) => {
+      dragElement = event.target;
+    });
 
-  element.addEventListener("dragstart", (event) => {
-    dragged = event.target;
-    event.target.classList.add("dragging");
-  });
+    element.addEventListener("dragstart", (event) => {
+      dragged = event.target;
+      event.target.classList.add("dragging");
+    });
 
-  element.addEventListener("dragend", (event) => {
-    event.target.classList.remove("dragging");
-  });
+    element.addEventListener("dragend", (event) => {
+      event.target.classList.remove("dragging");
+    });
+  }
 }
+addDragFunctionalityToAllElements();
 
 for (const dropZone of dropZones) {
   dropZone.addEventListener("dragover", (event) => {

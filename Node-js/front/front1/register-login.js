@@ -1,11 +1,27 @@
+async function checkSession() {
+  try {
+    const promise = await fetch("http://localhost/server/user/session-check", {
+      credentials: "include",
+    });
+    const answer = await promise.json();
+    if (answer.sessionValid) {
+      window.location.href = "http://localhost/Node-js/front/front1/todos.html";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+checkSession();
+
 const username = document.querySelector("#register-user");
 const email = document.querySelector("#register-email");
 const password = document.querySelector("#register-password");
 const registerButton = document.querySelector("#register-button");
 
 async function register() {
-  const promise = await fetch("http://localhost:3000/register", {
+  const promise = await fetch("http://localhost/server/users/register", {
     method: "POST",
+    credentials: "include",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       username: username.value,
@@ -23,7 +39,7 @@ const loginPassword = document.querySelector("#login-password");
 const loginButton = document.querySelector("#login-button");
 
 async function login() {
-  fetch("http://localhost:3000/login", {
+  fetch("http://localhost/server/users/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

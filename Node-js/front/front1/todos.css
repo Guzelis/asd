@@ -6,6 +6,10 @@
   background-color: bisque;
 }
 
+.done-list {
+  overflow-y: scroll;
+}
+
 .actions i {
   font-size: 30px;
   cursor: pointer;
@@ -17,9 +21,12 @@
   filter: brightness(80%);
   scale: 1.05;
 }
-
+.lists {
+  max-height: 80vh;
+}
 .all-todos {
   height: 100%;
+  overflow-y: scroll;
 }
 
 .todo,

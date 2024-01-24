@@ -36,7 +36,7 @@
               draggable="true"
             >
               <input type="checkbox" name="todo" />
-              <span class="todo-text">Apsitriesti nugaryte</span>
+              <span class="todo-text"></span>
               <div class="dropdown">
                 <i
                   class="bi bi-three-dots data-toggle"
@@ -63,9 +63,10 @@
               </div>
             </div>
           </div>
+
           <div class="input-group mb-1">
-            <input type="text" class="form-control" />
-            <button class="btn btn-primary" type="button">Add</button>
+            <input id="todo-input" type="text" class="form-control" />
+            <div id="todo-add" class="btn btn-primary" type="button">Add</div>
           </div>
         </div>
         <div class="actions d-flex flex-column justify-content-center gap-3">
@@ -76,7 +77,7 @@
         <div class="done-list dropzone"></div>
       </div>
     </div>
-
+    <script src="api.js"></script>
     <script src="drag-drop.js"></script>
     <script src="three-dots-action.js"></script>
     <script src="middle-buttons.js"></script>
